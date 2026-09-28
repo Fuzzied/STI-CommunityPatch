@@ -8,7 +8,11 @@ Your saves are never touched by the setup. They live in your own user folder, no
 
 ## You need the community version first
 
-The patch is made for the community version of the game, v0.35.43, not the plain Steam build. Izm_ shares it on the Space Travel Idle Discord, get it from Izm_'s post: <https://discord.com/channels/758755842861432832/1517349127204114482/1517403351229272074>
+The patch is made for the community version of the game, v0.35.43, not the plain Steam build. Izm_ shares it on the Space Travel Idle Discord.
+
+Download: [SpaceTravelIdle_0.35.43.community.ver.zip](https://drive.google.com/file/d/12rzd9zlH0ixN5Saq7-1-CaeDvJwAeP3I/view?usp=sharing) (Izm_'s Google Drive)
+
+Izm_'s post on Discord: <https://discord.com/channels/758755842861432832/1517349127204114482/1517403351229272074>
 
 ## Download
 
