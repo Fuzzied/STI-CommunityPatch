@@ -1,0 +1,168 @@
+Space Travel Idle Community Patch 0.1, Windows
+==============================================
+
+Thanks for trying this. It is free of course. Everything in here is optional,
+you tick what you want, and you can change your mind later by running the
+setup again.
+
+Your save is not in the game folder. It lives in your own AppData folder and
+the setup never touches it. Nothing in here can eat your progress.
+
+
+Before you start
+----------------
+
+Close the game. Windows keeps the game's files locked while it is running, so
+patching them will just fail.
+
+And do not end the game from Task Manager, ever. The game writes your save on
+the way out. Use the in game quit.
+
+You need Python 3.9 or newer. If you do not have it, get it from python.org
+and tick "Add python.exe to PATH" on the first screen of the installer. That
+tick box is the one thing people miss, and without it the setup cannot start.
+
+The setup also needs one Python package called UnityPy, which is what lets it
+edit the game's data. You do not have to install that yourself. If it is
+missing the setup offers to fetch it and you just say yes.
+
+
+Installing
+----------
+
+Double click "Setup Space Travel Idle Mod.bat".
+
+Windows may put up a blue "Windows protected your PC" box, because the file
+came out of a zip and is not signed by anyone. Click "More info" and then
+"Run anyway". That is SmartScreen doing its job on an unsigned script, and it
+will do it once.
+
+The setup finds your Steam copy of the game by itself. If it cannot, it asks
+for the folder and you paste the path in. Point it at the folder that holds
+SpaceTravelIdle.exe.
+
+Then it shows the menu. All 44 additions are on already, so if you want the
+lot, press Enter and you are done. Press c instead and it lists all 44, each
+one marked on or OFF. There you type numbers to turn things off or on, several
+at a time if you like, and ?8 tells you what number 8 actually does. It backs up
+every original file it touches before it writes anything.
+
+Some of those names are hidden on purpose, so the list does not tell you about
+a planet, a card or an upgrade you have not found yet. They read as things like
+"New card: an Epic Action card" instead. Press s and you get the real names, if
+you would rather just see what you are installing.
+
+That is it. No launch options, no extra steps. Start the game from Steam as
+normal.
+
+
+Did it work?
+------------
+
+Two things to look for.
+
+In the game folder: There is a new folder called BepInEx, with a file inside
+it called LogOutput.log. Open that in Notepad and the top of it lists every
+plugin that loaded.
+
+In the game: Settings gets a "Community mod" section at the bottom of the
+right hand column, and an "Auto start" section under Tutorial Progress.
+
+If the game starts and neither of those is there, the loader is not getting
+in. Send me these two files and I can usually tell what happened without
+guessing:
+
+    The game folder\BepInEx\LogOutput.log
+    C:\Users\<you>\AppData\LocalLow\Ayatsuji\SpaceTravelIdle\Player.log
+
+To get to that second one quickly: press Windows+R, paste
+%userprofile%\AppData\LocalLow\Ayatsuji\SpaceTravelIdle and press Enter.
+
+
+Changing your mind
+------------------
+
+Run the setup again, press c, and untick the thing you no longer want. It takes
+that one patch back off and leaves everything else alone.
+
+Worth knowing: the menu always opens with all 44 on. It does not read what
+you chose last time. So if you left something out before and you still want it
+left out, untick it again.
+
+To take the whole thing off, run the setup and choose r. It puts every
+original game file back and removes the loader.
+
+One thing worth knowing: Steam verifying or updating the game undoes the mod,
+because it replaces the files the setup wrote in. Nothing breaks, you just run
+the setup again afterwards.
+
+
+Repairing a scrambled priority list
+-----------------------------------
+
+This is the one repair job the setup cannot do for you, because it is your
+save that needs fixing rather than the game.
+
+There was a bug in an earlier version of Auto Start where a research or
+building rebuilt on load could end up at the bottom of the priority list,
+under your Accumulation Layers, and the mod would then remember it there. The
+cause is fixed. A list that already got scrambled stays scrambled, though,
+because the wrong order is what got written down.
+
+If that happened to you, there is a tool in the zip called
+tools\repair_priority_order.py. It copies one planet's order out of a save
+slot you know was good and writes it back into your current one. It only
+touches that one block, it backs the save up first, and it refuses to run
+while the game is open.
+
+It needs one more Python package than the setup does:
+
+    pip install pycryptodome
+
+Then, with the game closed, in a Command Prompt window:
+
+    python "C:\wherever you unzipped this\tools\repair_priority_order.py" --help
+
+Tell me which planet and which save slot before you run it for real. The tool
+asks for the planet as a number, and guessing at that number is the one way to
+make things worse rather than better.
+
+
+What this is
+------------
+
+44 optional patches. Roughly half of them fix things the base game gets wrong,
+and roughly half add content or quality of life on top.
+
+The Balancer
+------------
+
+I tuned this patch with a second mod on, the Unlocker by Berserker. I call it
+the Balancer. Without it and my settings, I lost every high level fight,
+trips took twice as long and Big Bang paid nothing unless I beat my best
+score.
+
+The setup now installs it for you, with the settings I used. Both lines are on
+when the menu opens. Rather play the plain game? Untick "Balancer". Version
+0.2 will be balanced for that too.
+
+If you already have it, your own copy and settings are kept aside. Your
+settings come back if you untick mine, and your copy comes back when you
+choose r.
+
+Not my work. It is shared under its MIT licence, which the setup copies next
+to it. Source: https://github.com/Berserker66/STIU
+
+What each one does is in PATCH_NOTES.txt next to this file. It is short, and
+it does not spoil anything you have not reached yet.
+
+Licence: GPL 3, see LICENCE.txt. The parts made by other people, like the
+mod loader and the Balancer, keep their own licences, listed in
+THIRD PARTY LICENCES.txt.
+
+Public version is Community Patch 0.1. The setup also prints an internal build
+number. If you report something, give me that build number, it saves a round
+of questions.
+
+Anything at all that looks wrong, tell me. Even "it looked odd for a second".
+Fuzzied
