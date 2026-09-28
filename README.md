@@ -73,7 +73,7 @@ powershell -ExecutionPolicy Bypass -File "C:\path\to\STI-CommunityPatch\plugin\b
 
 ## Credits
 
-Space Travel Idle is made by Ayatsuji. This patch is a fan project and not made by or with them.
+Space Travel Idle is made by Ayatsuji_San and published by Spaceive. This patch is a fan project and not made by or with them.
 
 A big thanks to Izm_ for sharing the community version. Without it there would be nothing to patch.
 
