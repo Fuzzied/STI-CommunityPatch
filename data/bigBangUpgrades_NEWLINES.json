@@ -1,0 +1,62 @@
+[
+    {
+        "id": "deterioration_floor_up",
+        "name": "Stable Universe",
+        "desc": "Raise the floor that a planet's output decays down to, by a factor of {v}. Unlike a planet's own infrastructure, this applies on every planet at once."
+    },
+    {
+        "id": "deterioration_slowdown",
+        "name": "Patient Universe",
+        "desc": "Multiply the speed at which a planet's output decays by {v}. Lower is better - your production stays high for longer."
+    },
+    {
+        "id": "path_knowledge_up",
+        "name": "Stellar Cartography",
+        "desc": "Shorten every journey to a planet you have already reached by a factor of {v}."
+    },
+    {
+        "id": "spaceship_dieting",
+        "name": "Cargo Compression",
+        "desc": "Multiply the total weight of your ship and its cargo by {v}. Lower is better - a lighter ship travels faster."
+    },
+    {
+        "id": "star_essence_gain_up",
+        "name": "Essence Refinement",
+        "desc": "Multiply all Star Essence you gain by a factor of {v}."
+    },
+    {
+        "id": "auto_start_ir",
+        "name": "Automated Arrival",
+        "desc": "Research and buildings start by themselves when you land. Level 2 skips what you cannot run, level 3 sorts the priority list, level 4 keeps it through a Big Bang."
+    },
+    {
+        "id": "cargo_ballast_trim",
+        "name": "Ballast Trim",
+        "desc": "Cargo weighs far less in flight. Without this a full hold makes a journey take thousands of times as long. At the top level it is 1.7 times, half a load 1.4."
+    },
+    {
+        "id": "cargo_bay_doors",
+        "name": "Cargo Bay Doors",
+        "desc": "Jettison the hold on departure and seal it for the flight, so nothing leaks back in. Level 2 lets you pick which resources go overboard and which stay."
+    },
+    {
+        "id": "quantum_pocket",
+        "name": "Quantum Pocket",
+        "desc": "A weightless pocket that catches everything you earn while travelling. Research and infrastructure can spend from it in flight, and it never slows you down."
+    },
+    {
+        "id": "offline_reserve",
+        "name": "Offline Reserve",
+        "desc": "Time keeps counting while the game is shut, up to one day. Every level banks another day, so at level 6 you can be away a whole week and come back to all of it."
+    },
+    {
+        "id": "offline_vault",
+        "name": "Offline Vault",
+        "desc": "Banks another week of offline time per level, on top of Offline Reserve. All fifteen is sixteen weeks, so a season away still comes back to you in full."
+    },
+    {
+        "id": "planetary_memory",
+        "name": "Planetary Memory",
+        "desc": "Keep a share of the infrastructure bonuses from planets you are not standing on. 2% of your best per level, so 30% at max, wherever you fly."
+    }
+]

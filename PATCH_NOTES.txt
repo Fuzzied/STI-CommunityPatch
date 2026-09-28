@@ -1,0 +1,179 @@
+Space Travel Idle: Community Patch 0.1
+======================================
+
+For Space Travel Idle v0.35.43, the community version. Windows and Mac.
+
+Some things below are described vaguely on purpose, so nothing is spoiled
+before you reach it. The cards in the game explain themselves when you get
+there.
+
+
+Before you start
+----------------
+
+- Installing: close the game, then run the setup. The READ ME FIRST file
+  next to it walks you through it.
+  Win: "Setup Space Travel Idle Mod.bat"
+  Mac: "Setup Space Travel Idle Mod.command"
+- Everything is optional. All 44 patches are on when the menu opens.
+  Press Enter to take them all, or c to pick.
+- Your saves are never touched by the setup.
+- Taking it off: run the setup again and choose r. Every original game
+  file goes back.
+- After a Steam update or file check, run the setup again. Steam puts the
+  original files back, nothing breaks.
+
+
+The Balancer
+------------
+
+I tuned this patch with a second mod on: the Unlocker by Berserker, which I
+call the Balancer. It lets you set the game's bonuses in a settings file.
+
+- The setup installs it for you, with the settings I used. Both lines are
+  on when the menu opens.
+- Without it and my settings, I lost every high level fight, trips took
+  twice as long, and Big Bang paid nothing unless I beat my best score.
+  You also get about a third of the drops and half the research.
+- Rather play the plain game? Untick "Balancer". Version 0.2 will be
+  balanced for that too.
+- Already have it? Your own copy and settings are kept aside. Your settings
+  come back if you untick mine, your copy comes back when you choose r.
+- Not my work. Shared under its MIT licence, which the setup copies next to
+  it. Source: https://github.com/Berserker66/STIU
+
+
+Offline changes
+---------------
+
+The base game has no offline limit. Be gone a month and you are credited the
+whole month.
+
+This patch adds one:
+
+- One day for free. Anything past that is not credited.
+- Two cheap lines in the Big Bang tree stretch it, up to sixteen weeks.
+  They were asked for as upgrades that add offline days, and they needed a
+  limit to add to.
+- Offline boss kills follow the same limit.
+- Rather have no limit? Untick "Offline time limit" in the installer.
+  You are back to the base game's unlimited offline time.
+  - The two Big Bang lines lock, since there is no limit for them to raise.
+  - Levels you already own stay, and you can take them back down for a
+    refund.
+  - You can also do it by hand: in the game folder, open
+    BepInEx\config\sti.community.offlinefix.cfg and set
+    CapOfflineTime = false
+
+
+Changes in the mod
+------------------
+
+Bug fixes
+
+- Saves that fail halfway and drop you into the tutorial with 0 dark matter.
+- Three destinations you cannot travel to, and two you can never reach.
+- A travel research that does nothing.
+- Production and dead ends on the far planets.
+- Three late researches that can never unlock.
+- Some fights freeze on the enemy's turn.
+- Cards that can never be levelled or stop partway up, and one that fell
+  out of the drop tables.
+- The Star Essence upgrade only counted essence earned after you bought it.
+  It now counts what you already hold.
+- Travel achievements reset with a Big Bang. They now go by the furthest you
+  have ever been.
+- Text showing as raw code words instead of names.
+- Filters forget what you set them to when you load.
+- Lists jump back to the top every time a research completes.
+- The game slows to a crawl and stops taking clicks once your research runs
+  fast.
+- Battle: health buffs now fill your health too, and a bigger hand fits on
+  screen.
+- The developer error console is hidden.
+
+Balance
+
+- Damage: a hit used to be attack minus defense, so it was either a
+  one-shot or exactly 0. Defense now always takes off a share and never
+  makes you immortal. Applies to enemies too.
+- Three challenge zones that ended up hundreds of times stronger than
+  anything after them now scale so you can beat them about one planet later
+  than where you find them.
+- Three battle cards that stopped scaling now grow with your cards, and a
+  fourth that nobody could use is reworked.
+- Costs retuned: Mars water and soil, two late game upgrades, and one
+  planet that cost more than the one after it.
+
+New content
+
+- More Big Bang upgrades, and the lines you already have go further. Most
+  of the new ones unlock later in the game.
+- One more permanent card slot, late game.
+- A second level of an early research, so your whole deck is in your hand
+  every fight.
+- A new card to find.
+- Cargo you can actually fly with. Your hull weighs 100 all game, and a
+  full hold weighs millions, later billions. So a full hold makes a journey
+  take thousands of times as long, and it gets worse every time you raise
+  your storage. Nothing in the game tells you. The fix is in the Big Bang
+  tree.
+- Buildings that keep paying after you leave a planet.
+- Icons for the new Big Bang upgrades, and artwork for cards that never had
+  any.
+
+Quality of life
+
+- Auto start: research, buildings and collectors start by themselves when
+  you land, set off or Big Bang, even if the game was closed.
+- Loadouts: more saved decks and permanent sets, one more per planet you
+  reach, up to 10 each. Loading one puts on the best copy you own of each
+  card.
+- Keyboard shortcuts for the things you repeat all evening.
+- Alchemy forge: a MAX button, a DE-LEVEL switch that splits merged cards
+  back down when a recipe is short, and a stop once a recipe has made a
+  Perfect card, so you do not waste resources chasing a better roll.
+- Collectors fill the tank right to the top, instead of stopping up to a
+  whole bar short.
+- Tooltips: choose how long they stay on screen.
+- Battles: the discard zone is gone.
+- The Big Bang window: the dark matter total no longer covers an
+  upgrade.
+- The game window opens where you last left it (Windows, windowed mode).
+
+Performance
+
+- The stutter while your fleet fights is gone. Every kill made the game
+  work out every drop chance from scratch, and cleaning up after that was
+  the hitch you saw. Late in the game it cost a lot of frame rate and let
+  the game clock fall behind. The answers are the same as before, just
+  remembered.
+
+
+Known issues
+------------
+
+- The Mac side has not been tested on a real Mac yet. It is written
+  against what the Mac build should look like. If you are on a Mac and try
+  it, please say how it went, good or bad. Nothing there can hurt your save.
+
+
+Found a problem?
+----------------
+
+Tell Fuzzied on Discord. Even "it looked odd for a second" helps.
+
+It saves a round of questions if you include:
+
+- The build number the setup prints at the top of its window.
+- Two log files:
+  - LogOutput.log, in the BepInEx folder inside the game folder.
+  - Player.log, which is here:
+    Win: %userprofile%\AppData\LocalLow\Ayatsuji\SpaceTravelIdle
+    Mac: ~/Library/Logs/Ayatsuji/SpaceTravelIdle
+
+
+Version history
+---------------
+
+- 0.1: first release.

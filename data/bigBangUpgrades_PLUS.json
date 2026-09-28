@@ -1,0 +1,3948 @@
+[
+    {
+        "id": "resource_storage_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.25",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 5
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "15",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 1500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "20",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "30",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 5000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "50",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 7500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "80",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 11600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "130",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 18400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "200",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 29400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "320",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 47400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "500",
+                    "method": 1,
+                    "type": 19
+                },
+                "cost": 77400
+            }
+        ]
+    },
+    {
+        "id": "energy_storage_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.25",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 5
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "15",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 1500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "20",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "30",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 5000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "50",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 7500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "80",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 11600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "130",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 18400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "200",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 29400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "320",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 47400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "500",
+                    "method": 1,
+                    "type": 18
+                },
+                "cost": 77400
+            }
+        ]
+    },
+    {
+        "id": "research_speed_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.25",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 5
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "15",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 1500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "20",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "30",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 5000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "50",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 7500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "80",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 11600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "130",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 18400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "200",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 29400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "320",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 47400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "500",
+                    "method": 1,
+                    "type": 16
+                },
+                "cost": 77400
+            }
+        ]
+    },
+    {
+        "id": "infra_speed_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.25",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 5
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "15",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 1500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "20",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "30",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 5000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "50",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 7500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "80",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 11600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "130",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 18400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "200",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 29400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "320",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 47400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "500",
+                    "method": 1,
+                    "type": 17
+                },
+                "cost": 77400
+            }
+        ]
+    },
+    {
+        "id": "biomass_gain_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 25
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 75
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 1000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "15",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "25",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 8000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "50",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 20000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "100",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 50000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "150",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 150000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "250",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 290000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "400",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 480000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "650",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 740000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1000",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 1090000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1600",
+                    "method": 1,
+                    "type": 12
+                },
+                "cost": 1570000
+            }
+        ]
+    },
+    {
+        "id": "energy_gain_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 5
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "15",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "25",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 1500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "50",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 4500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "100",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 10000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "150",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 22500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "250",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 40500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "400",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 66500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "650",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 104500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1000",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 159500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1600",
+                    "method": 1,
+                    "type": 1
+                },
+                "cost": 238500
+            }
+        ]
+    },
+    {
+        "id": "resource_gain_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 5
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "15",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "25",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 1500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "50",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 4500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "100",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 10000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "150",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 22500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "250",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 40500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "400",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 66500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "650",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 104500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1000",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 159500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1600",
+                    "method": 1,
+                    "type": 2
+                },
+                "cost": 238500
+            }
+        ]
+    },
+    {
+        "id": "stardust_gain_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.2",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 1200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 3500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 8000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "15",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 20000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "30",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 55000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "50",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 140000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "100",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 350000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "175",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 650000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "300",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 1070000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "500",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 1660000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "850",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 2490000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1500",
+                    "method": 1,
+                    "type": 29
+                },
+                "cost": 3690000
+            }
+        ]
+    },
+    {
+        "id": "increase_base_attack",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "0.2",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 3
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.5",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 10
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 30
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2.5",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 1000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "6",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 2500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "9",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 4500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "12.5",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 8000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "16",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 12000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "21",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 18600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "27",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 29600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "34",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 47600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "42",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 77600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "52",
+                    "method": 2,
+                    "type": 6
+                },
+                "cost": 126600
+            }
+        ]
+    },
+    {
+        "id": "increase_base_defense",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "0.2",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 3
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.5",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 10
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 30
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2.5",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 1000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "6",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 2500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "9",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 4500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "12.5",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 8000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "16",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 12000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "21",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 18600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "27",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 29600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "34",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 47600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "42",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 77600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "52",
+                    "method": 2,
+                    "type": 7
+                },
+                "cost": 126600
+            }
+        ]
+    },
+    {
+        "id": "increase_base_hp",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 3
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 10
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2.5",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 30
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "6",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "9",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 1000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "12.5",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 2500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "16",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 4500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "20",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 8000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "25",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 12000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "32",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 18600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "40",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 29600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "50",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 47600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "62",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 77600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "78",
+                    "method": 2,
+                    "type": 8
+                },
+                "cost": 126600
+            }
+        ]
+    },
+    {
+        "id": "multiply_base_attack",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.05",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 5
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.1",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.2",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.35",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 250
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.75",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 1600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 6000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 20000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 50000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 100000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "18",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 175000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "32",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 285000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "60",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 445000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "110",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 685000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "200",
+                    "method": 1,
+                    "type": 6
+                },
+                "cost": 1045000
+            }
+        ]
+    },
+    {
+        "id": "multiply_base_defense",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.05",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 5
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.1",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.2",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.35",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 180
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.75",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 1600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 6000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 20000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 50000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 100000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "18",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 175000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "32",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 285000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "60",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 445000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "110",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 685000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "200",
+                    "method": 1,
+                    "type": 7
+                },
+                "cost": 1045000
+            }
+        ]
+    },
+    {
+        "id": "multiply_base_hp",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.05",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 1
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.1",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 3
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.2",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 6
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.35",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 12
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 30
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.75",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 95
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 250
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 800
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 2500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 10000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "18",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 20000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "32",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 33000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "60",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 50000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "110",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 73000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "200",
+                    "method": 1,
+                    "type": 8
+                },
+                "cost": 104000
+            }
+        ]
+    },
+    {
+        "id": "player_attack_speed_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "-0.02",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 5
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.04",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.06",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.08",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.1",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.125",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.15",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 1500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.175",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.2",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 5000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.33",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 7500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.4",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 11600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.47",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 18400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.55",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 29400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.65",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 47400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.8",
+                    "method": 2,
+                    "type": 3
+                },
+                "cost": 77400
+            }
+        ]
+    },
+    {
+        "id": "enemy_attack_speed_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "-0.02",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 5
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.04",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.06",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.08",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.1",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.125",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.15",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 1500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.175",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.2",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 5000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.33",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 7500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.4",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 11600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.47",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 18400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.55",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 29400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.65",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 47400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.8",
+                    "method": 2,
+                    "type": 4
+                },
+                "cost": 77400
+            }
+        ]
+    },
+    {
+        "id": "enemy_gen_speed_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "-0.02",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 5
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.04",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.06",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.08",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.1",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.125",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.15",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 1500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.175",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.2",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 5000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.33",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 7500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.4",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 11600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.47",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 18400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.55",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 29400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.65",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 47400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "-0.8",
+                    "method": 2,
+                    "type": 5
+                },
+                "cost": 77400
+            }
+        ]
+    },
+    {
+        "id": "increase_drop_chance",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.1",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 10
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.25",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 25
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 80
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.75",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 160
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 450
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2.5",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 1400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 4500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 12000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 35000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 100000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "15",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 190000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "22",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 310000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "32",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 480000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "45",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 720000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "65",
+                    "method": 1,
+                    "type": 28
+                },
+                "cost": 1050000
+            }
+        ]
+    },
+    {
+        "id": "increase_engine_cap",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 1
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "9",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 4
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "16",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "25",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 60
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "36",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "49",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 750
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "64",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "81",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 12000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "100",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 50000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "225",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 100000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "400",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 175000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "700",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 285000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1200",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 445000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2000",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 685000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3500",
+                    "method": 1,
+                    "type": 37
+                },
+                "cost": 1045000
+            }
+        ]
+    },
+    {
+        "id": "increase_engine_speed",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 1
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "9",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 4
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "16",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 15
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "25",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 60
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "36",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "49",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 750
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "64",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "81",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 12000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "100",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 50000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "225",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 100000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "400",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 175000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "700",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 285000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1200",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 445000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2000",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 685000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3500",
+                    "method": 1,
+                    "type": 39
+                },
+                "cost": 1045000
+            }
+        ]
+    },
+    {
+        "id": "reduce_travel_time",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.1",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 50
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.2",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 150
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.8",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 1200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2.2",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2.6",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 8000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 25000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3.5",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 100000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 200000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 500000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "15",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 920000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "22",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 1510000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "32",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 2350000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "45",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 3550000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "65",
+                    "method": 1,
+                    "type": 24
+                },
+                "cost": 5250000
+            }
+        ]
+    },
+    {
+        "id": "alchemy_roll_curve",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "0.1",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.2",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 1200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.3",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 2500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.4",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 4000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.5",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 6000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.6",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 9000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.7",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 15000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.8",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 25000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.9",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 40000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 75000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.1",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 128000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.2",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 209000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.3",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 329000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.4",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 509000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 2,
+                    "type": 40
+                },
+                "cost": 789000
+            }
+        ]
+    },
+    {
+        "id": "deterioration_floor_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 5000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 12400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 23400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 39400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "6",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 63400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "9",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 98400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "13",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 149400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "18",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 225400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "25",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 335400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "35",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 495400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "50",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 735400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "70",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 1095400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "95",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 1625400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "125",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 2395400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "160",
+                    "method": 1,
+                    "type": 21
+                },
+                "cost": 3495400
+            }
+        ]
+    },
+    {
+        "id": "deterioration_slowdown",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "0.9",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 4000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.82",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 9800
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.74",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 18200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.66",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 30200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.58",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 48200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.5",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 74200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.42",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 112200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.35",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 167200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.28",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 247200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.22",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 367200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.17",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 537200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.13",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 777200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.09",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 1127200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.06",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 1647200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.04",
+                    "method": 1,
+                    "type": 20
+                },
+                "cost": 2397200
+            }
+        ]
+    },
+    {
+        "id": "path_knowledge_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.25",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 2000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 4900
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 9200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 15600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 25000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "6",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 39000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "9",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 59000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "13",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 89000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "20",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 133000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "30",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 198000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "45",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 294000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "70",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 434000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "110",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 644000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "170",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 954000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "250",
+                    "method": 1,
+                    "type": 35
+                },
+                "cost": 1404000
+            }
+        ]
+    },
+    {
+        "id": "spaceship_dieting",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "0.92",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.85",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 7400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.78",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 13900
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.7",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 23400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.62",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 37400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.55",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 57400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.47",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 87400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.4",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 131400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.33",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 195400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.26",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 289400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.2",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 429400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.15",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 629400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.11",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 929400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.08",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 1359400
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "0.05",
+                    "method": 1,
+                    "type": 25
+                },
+                "cost": 1999400
+            }
+        ]
+    },
+    {
+        "id": "star_essence_gain_up",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1.25",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 2500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.5",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 5900
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 10600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 17100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 26100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "8",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 38100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "12",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 55100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "20",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 78100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "32",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 110100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "50",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 155100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "80",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 216100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "130",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 300100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "200",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 420100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "320",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 580100
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "500",
+                    "method": 1,
+                    "type": 34
+                },
+                "cost": 800100
+            }
+        ]
+    },
+    {
+        "id": "auto_start_ir",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 2000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 6000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 15000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 40000
+            }
+        ]
+    },
+    {
+        "id": "cargo_ballast_trim",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "89",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 4000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "55",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 11600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "33",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 25600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "20",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 52600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "12.3",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 103600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "7.5",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 200600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4.6",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 380600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 730600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2.2",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 1390600
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "1.7",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 2590600
+            }
+        ]
+    },
+    {
+        "id": "cargo_bay_doors",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 4000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "7",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 12000
+            }
+        ]
+    },
+    {
+        "id": "quantum_pocket",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 20000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 48000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "6",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 87000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "9",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 142000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "12",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 220000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "16",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 330000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "21",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 480000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "27",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 700000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "34",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 1000000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "42",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 1420000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "52",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 2020000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "64",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 2860000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "78",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 4060000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "90",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 5660000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "100",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 7960000
+            }
+        ]
+    },
+    {
+        "id": "offline_reserve",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 2000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 4000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 6000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 8000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 10000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "6",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 12000
+            }
+        ]
+    },
+    {
+        "id": "offline_vault",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "1",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 2000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 4000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "3",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 6000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 8000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "5",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 10000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "6",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 12000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "7",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 14000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "8",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 16000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "9",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 18000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 20000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "11",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 22000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "12",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 24000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "13",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 26000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "14",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 28000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "15",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 30000
+            }
+        ]
+    },
+    {
+        "id": "planetary_memory",
+        "upgrades": [
+            {
+                "bonus": {
+                    "eqTemplate": "2",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 1200
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "4",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 3000
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "6",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 5500
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "8",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 8800
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "10",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 13300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "12",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 19800
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "14",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 28800
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "16",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 41300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "18",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 59300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "20",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 84300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "22",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 120300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "24",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 168300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "26",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 234300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "28",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 327300
+            },
+            {
+                "bonus": {
+                    "eqTemplate": "30",
+                    "method": 0,
+                    "type": 0
+                },
+                "cost": 459300
+            }
+        ]
+    }
+]
