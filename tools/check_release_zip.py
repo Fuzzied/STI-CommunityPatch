@@ -225,6 +225,22 @@ def check(zip_path):
             print("readme           MISSING from the top of the zip")
             bad += 1
 
+        # The credits must be in the text a player opens first, the readme
+        # or the patch notes. See package_common.CREDITS for why.
+        sys.path.insert(0, SCRIPT_DIR)
+        import package_common
+        first = []
+        for name in readmes + ["PATCH_NOTES.txt"]:
+            p = os.path.join(work, name)
+            if os.path.isfile(p):
+                with open(p, encoding="utf-8", errors="replace") as fh:
+                    first.append(fh.read())
+        gone = package_common.missing_credits(*first)
+        print("credits          %d of %d named%s"
+              % (len(package_common.CREDITS) - len(gone), len(package_common.CREDITS),
+                 ("  MISSING: " + ", ".join(gone)) if gone else ""))
+        bad += len(gone)
+
         print()
         print("PASSED" if bad == 0 else "%d PROBLEM(S)" % bad)
         print()

@@ -17,6 +17,22 @@ import zipfile
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(SCRIPT_DIR)
 
+# The people whose work 0.1 stands on, by the name players know them by.
+# Fuzzied, 28.09.2026: 0.1 ships "with their credited work". Izm_'s credit went
+# into the Discord post only and missed every file, and the GitHub README was
+# written from the files, so it missed it too. check_release_zip.py and
+# build_github_repo.py refuse any player text that leaves one of these out.
+CREDITS = {
+    "Izm_": "shares the community version v0.35.43 the patch is made for",
+    "Berserker": "made the Unlocker, which the setup installs as the Balancer",
+}
+
+
+def missing_credits(*texts):
+    """The CREDITS names that appear in none of the given texts."""
+    joined = "\n".join(texts)
+    return [name for name in CREDITS if name not in joined]
+
 
 def installer():
     """Import setup_mod.py from the project, wherever this script was run."""
