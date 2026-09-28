@@ -6,6 +6,10 @@ Bugfixes, quality of life, new cards, new Big Bang upgrades and quite a lot of b
 
 Your saves are never touched by the setup. They live in your own user folder, not in the game folder.
 
+## You need the community version first
+
+The patch is made for the community version of the game, v0.35.43, not the plain Steam build. Izm_ shares it on the Space Travel Idle Discord, get it from Izm_'s post: <https://discord.com/channels/758755842861432832/1517349127204114482/1517403351229272074>
+
 ## Download
 
 Go to the **Releases** page on the right and grab the zip for your system:
@@ -70,6 +74,8 @@ powershell -ExecutionPolicy Bypass -File "C:\path\to\STI-CommunityPatch\plugin\b
 ## Credits
 
 Space Travel Idle is made by Ayatsuji. This patch is a fan project and not made by or with them.
+
+A big thanks to Izm_ for sharing the community version. Without it there would be nothing to patch.
 
 The patch runs on [BepInEx](https://github.com/BepInEx/BepInEx) and [HarmonyX](https://github.com/BepInEx/HarmonyX). The setup edits the game's data with [UnityPy](https://github.com/K0lb3/UnityPy).
 
