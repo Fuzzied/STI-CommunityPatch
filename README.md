@@ -4,6 +4,8 @@ A free Community Patch for Space Travel Idle v0.35.43, the community version. Wi
 
 Bugfixes, quality of life, new cards, new Big Bang upgrades and quite a lot of balance changes. No Python and no setup since 0.1.1. Everything is on, and one settings file turns things off.
 
+It also comes with a second mod that isn't mine: the [Space Travel Idle Unlocker](https://github.com/Berserker66/STIU) by Berserker, which I call the Balancer. I tuned the whole patch with it on. All credit for it goes to Berserker.
+
 Your saves are never touched. They live in your own user folder, not in the game folder.
 
 ## You need the community version first
