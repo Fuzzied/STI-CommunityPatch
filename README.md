@@ -54,7 +54,15 @@ Mac: the install script does it for you.
 
 ### Turning things off
 
-After the game has started once, open `BepInEx/config/STI Community Patch.cfg` in the game folder. Set a line to false and restart the game. The Balancer is its own mod: delete `BepInEx/plugins/STIU` and `BepInEx/config/STIU.cfg` to play without it.
+Everything is on when you install it. The first time the game starts, it makes a settings file in the game folder:
+
+`BepInEx/config/STI Community Patch.cfg`
+
+Open it in Notepad (TextEdit on a Mac). Every part of the patch has its own line there, with a short description above it. Change `true` to `false` on the ones you don't want, save, and restart the game.
+
+### Playing without the Balancer
+
+The patch comes with a second mod, Berserker's Unlocker, which I call the Balancer. I tuned the patch with it on. It is not in the settings file, because it is not mine. To play without it, delete `BepInEx/plugins/STIU` and `BepInEx/config/STIU.cfg` from the game folder.
 
 ### Taking it off
 
