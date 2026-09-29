@@ -1,16 +1,15 @@
-Space Travel Idle Community Mod, Mac version
+Space Travel Idle Community Patch 0.1.1, Mac
 ============================================
 
-Thank you for testing this. You are the first person to run it on a Mac, so
-this file is longer than it will ever need to be again.
+Thanks for trying this. It is free of course.
 
-Nothing here has been tested on a real Mac yet. Everything has been written
-against what the Mac build of the game should look like, and the first job is
-to find out where that guess is wrong. If something goes sideways, that is
-the whole point of you being here, and nothing you do can hurt your save.
+New in 0.1.1: No Python any more. One script puts it in, everything is on,
+and one settings file turns things off.
 
-Your save lives in your home folder, not in the game folder. The setup never
-touches it.
+Nothing here has been tested on a real Mac yet. It is written against what
+the Mac build of the game should look like. If you try it, please tell me
+how it went, good or bad. Nothing you do here can hurt your save, which
+lives in your home folder, not in the game folder.
 
 
 Before you start: use the normal Steam branch
@@ -20,160 +19,92 @@ In Steam: right-click Space Travel Idle, Properties, Betas. Beta Participation
 should say None.
 
 On beta or beta-danger Steam gives a Mac a much older game (0.2.2, not 0.3.5).
-Neither the community version nor this patch fits it. If you are on one of
-them, pick None and let Steam update the game before you go on. (On Windows
-every branch works. It is only the Mac that gets the old game.)
+Neither the community version nor this patch fits it.
 
 
-Step 1: Run the check, before anything else
--------------------------------------------
+You need the community version first
+------------------------------------
 
-Double-click "Check My Mac Setup.command".
+This patch is made for Space Travel Idle v0.35.43, the community version.
+Izm_ shares it on the Space Travel Idle Discord, and it is here too:
+
+    https://drive.google.com/file/d/12rzd9zlH0ixN5Saq7-1-CaeDvJwAeP3I/view?usp=sharing
+
+It is packed for Windows. On a Mac its files go inside the app instead:
+right-click Space Travel Idle.app, Show Package Contents, then
+Contents/Resources/Data. That has not been tried on a real Mac yet either,
+so shout if it looks different.
+
+
+Installing
+----------
+
+Close the game first.
+
+Double-click "Install Community Patch.command".
 
 macOS will probably refuse the first time and say it is from an unidentified
 developer. That is normal for any script that arrives in a zip. Right-click
 the file instead, choose Open, and click Open in the box that appears. You
-only have to do that once per file.
+only have to do that once.
 
-If you would rather not fight Finder at all, open Terminal and run this
-instead (drag the file into the Terminal window to get the path right):
+It finds the game by itself. If it cannot, it asks, and you drag the game
+folder (the one holding Space Travel Idle.app) into the window.
 
-    sh "/path/to/Check My Mac Setup.command"
-
-It changes nothing. It just looks around and writes
-space-travel-idle-mac-report.txt to your Desktop. Send that back before you
-run the setup. It answers a lot of questions in one go: where Steam put the
-game, what the app bundle is called, whether the game is Intel or Apple
-Silicon, and how Apple signed it.
+Coming from 0.1? The script also takes out the game data 0.1 wrote, so you
+do not have to do anything extra.
 
 
-Step 2: Run the setup
----------------------
+The one step the script cannot do for you
+-----------------------------------------
 
-Close the game first. Then double-click "Setup Space Travel Idle Mod.command",
-with the same right-click and Open trick if macOS complains.
-
-It asks the same questions the Windows version asks. Press Enter to install all
-44, or c to pick which ones you want. Some names in that list are hidden so it
-does not spoil content you have not reached yet, and s shows you the real ones.
-If it cannot find the game by itself, it asks for the folder,
-and you can drag the folder straight from Finder into the Terminal window.
-
-Point it at the FOLDER that holds Space Travel Idle.app, not at the app
-itself. If you drag the app in anyway it works it out and steps up a level.
-
-It needs Python 3 and one Python package called UnityPy. If UnityPy is
-missing it offers to install it for you and you just say yes.
-
-
-Step 3: The one step the setup cannot do for you
-------------------------------------------------
-
-This is the part that is different from Windows, and the mod does nothing
-without it.
-
-On Windows the mod loader hooks itself into the game just by sitting in the
-folder. On a Mac it cannot. The game has to be started through a small script
-instead, and only Steam can be told to do that.
-
-The setup prints the exact line to use when it finishes. It looks like this:
+On a Mac the game has to be started through a small script, and only Steam
+can be told to do that. The install script prints the exact line when it
+finishes, and copies it for you. It looks like this:
 
     "/Users/you/Library/Application Support/Steam/steamapps/common/Space Travel Idle/run_bepinex.sh" %command%
 
 In Steam: right-click Space Travel Idle, Properties, General, and paste it
-into Launch Options. Keep the quotes and keep the %command% at the end.
-
-Then start the game from Steam as normal.
+into Launch Options. Then start the game from Steam as normal.
 
 
 Did it work?
 ------------
 
-If it did, there is a new folder called BepInEx inside the game folder with a
-file called LogOutput.log in it. Open that and the top of it lists every
-plugin that loaded. In the game itself, Settings gets a Community mod section
-at the bottom of the right hand column.
+In the game: Settings gets a Community mod section at the bottom of the
+right hand column.
 
-If the game starts but LogOutput.log never appears, the loader is not getting
-in. That is the risk I most expect to hit, and it is almost always one of two
-things:
+In the game folder: BepInEx/LogOutput.log. Its first lines say which
+version of the patch is running and list every plugin that loaded.
 
-Quarantine: macOS marks everything that came out of a downloaded zip as
-untrusted, and it refuses to load an untrusted library. The setup tries to
-clear that flag by itself. If it could not, run this in Terminal, with your
-own game path:
+If the game starts but LogOutput.log never appears, the loader is not
+getting in. Send me these, and I can usually tell what happened:
 
-    xattr -dr com.apple.quarantine "/path/to/Space Travel Idle"
-
-Code signing: if Apple signed the game with something called the hardened
-runtime, macOS blocks the loader on purpose and there is no flag to clear.
-The check script reports this, which is why step 1 matters. Do not start
-pulling signatures off the app on your own. Send me the report and I will
-tell you what to do.
-
-Either way, send me these two things and I can usually tell what happened
-without guessing:
-
-    The game folder/BepInEx/LogOutput.log
+    space-travel-idle-install-report.txt, which the script put on your Desktop
+    The game folder/BepInEx/LogOutput.log, if there is one
     ~/Library/Logs/Ayatsuji/SpaceTravelIdle/Player.log
 
-To get to that second one: in Finder press Cmd+Shift+G, paste the path, and
+To get to that last one: in Finder press Cmd+Shift+G, paste the path, and
 press Enter.
 
 
-Taking it all off again
------------------------
+Turning things off
+------------------
 
-Run the setup again and choose r. It puts the original game files back and
-removes the loader. Then clear the Launch Options line in Steam, or the game
-will try to start through a script that is no longer there.
+Everything is on. After the game has started once, there is a settings file
+in the game folder:
 
-Steam verifying or updating the game also undoes the mod. Just run the setup
-again afterwards.
+    BepInEx/config/STI Community Patch.cfg
 
+Open it in TextEdit. Every part of the patch has a line there, with a short
+description above it. Change true to false on the ones you do not want,
+save, and restart the game.
 
-Repairing a scrambled priority list
------------------------------------
+Some names in there are vague on purpose, so the file does not tell you
+about a planet, a card or an upgrade you have not found yet.
 
-This is the one repair job the setup cannot do for you, because it is your
-save that needs fixing rather than the game.
+The in game Settings panel gets these switches in 0.2.
 
-There was a bug in an earlier version of Auto Start where a research or
-building rebuilt on load could end up at the bottom of the priority list,
-under your Accumulation Layers, and the mod would then remember it there. The
-cause is fixed. A list that already got scrambled stays scrambled though,
-because the wrong order is what got written down.
-
-If that happened to you, there is a tool in the zip called
-tools/repair_priority_order.py. It copies one planet's order out of a save
-slot you know was good and writes it back into your current one. It only
-touches that one block, it backs the save up first, and it refuses to run
-while the game is open.
-
-It needs one more Python package than the setup does. In Terminal:
-
-    python3 -m pip install pycryptodome
-
-Then, with the game closed:
-
-    python3 "/path/to/the/unzipped/folder/tools/repair_priority_order.py" --help
-
-It looks for your saves in ~/Library/Application Support/Ayatsuji, which is
-where the Mac build should be putting them. Should. If it says it cannot find
-a save folder, tell me where yours actually is, and in the meantime you can
-point it there yourself by adding --save-dir "/the/folder/with/your/sti/files"
-to the command.
-
-Tell me which planet and which save slot before you run it for real. The tool
-asks for the planet as a number, and guessing at that number is the one way to
-make things worse rather than better.
-
-
-What is different from the Windows version
-------------------------------------------
-
-Nothing, in terms of what the mod does. Same patches, same plugins, same
-settings. The only real difference is the Launch Options line in step 3.
 
 The Balancer
 ------------
@@ -183,22 +114,56 @@ the Balancer. Without it and my settings, I lost every high level fight,
 trips took twice as long and Big Bang paid nothing unless I beat my best
 score.
 
-The setup now installs it for you, with the settings I used. Both lines are on
-when the menu opens. Rather play the plain game? Untick "Balancer". Version
-0.2 will be balanced for that too.
+It comes with the patch, with the settings I used, so it is on too. If you
+already had your own settings for it, the script keeps them as
+STIU.cfg.before-community-patch.
 
-If you already have it, your own copy and settings are kept aside. Your
-settings come back if you untick mine, and your copy comes back when you
-choose r.
+Rather play the plain game? In the game folder, delete BepInEx/plugins/STIU
+and BepInEx/config/STIU.cfg. Version 0.2 will be balanced for that too.
 
-Not my work. It is shared under its MIT licence, which the setup copies next
-to it. Source: https://github.com/Berserker66/STIU
+Not my work. It is shared under its MIT licence, which sits next to it.
+Source: https://github.com/Berserker66/STIU
 
-What each patch does is in PATCH_NOTES.txt next to this file.
 
-Licence: GPL 3, see LICENCE.txt. The parts made by other people, like the
-mod loader and the Balancer, keep their own licences, listed in
-THIRD PARTY LICENCES.txt.
+Taking it all off
+-----------------
+
+Clear the Launch Options line in Steam. That alone starts the game without
+any of it. To tidy up, also move the BepInEx folder, run_bepinex.sh and
+libdoorstop.dylib from the game folder to the Trash.
+
+Worth knowing: Steam verifying the game puts back Steam's own game files,
+and that takes out the community version too. Put it back in afterwards.
+
+
+Repairing a scrambled priority list
+-----------------------------------
+
+There was a bug in an earlier version of Auto Start where a research or
+building rebuilt on load could end up at the bottom of the priority list.
+The cause is fixed, but a list that already got scrambled stays scrambled.
+
+There is a repair tool in STI Community Patch/tools/repair_priority_order.py.
+It needs Python, so tell me on Discord first and I will walk you through it.
+
+
+Thanks
+------
+
+Space Travel Idle is made by Aya and Berk, two friends who started it in
+2020. This patch is a fan project, not made by or with them.
+
+A big thanks to Izm_ for sharing the community version. Without it there
+would be nothing to patch.
+
+And Berserker, for the Unlocker.
+
+
+What each patch does is in STI Community Patch/PATCH_NOTES.txt.
+
+Licence: GPL 3, see STI Community Patch/LICENCE.txt. The parts made by
+other people, like the mod loader and the Balancer, keep their own licences,
+listed in THIRD PARTY LICENCES.txt next to it.
 
 Anything at all that looks wrong, tell me. Even "it looked odd for a second".
 Fuzzied

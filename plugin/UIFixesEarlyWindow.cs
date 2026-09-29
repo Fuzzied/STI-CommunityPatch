@@ -102,6 +102,11 @@ public static class UIFixesEarlyWindow
         try
         {
             log = Logger.CreateLogSource("UI Fixes Early Window");
+            // 0.1.1: this is part of UI fixes, so it obeys the same switch.
+            if (!CommunityToggle.On("ui-fixes", log))
+            {
+                return;
+            }
             if (Environment.OSVersion.Platform != PlatformID.Win32NT)
             {
                 return;

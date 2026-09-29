@@ -1,5 +1,5 @@
-Space Travel Idle: Community Patch 0.1
-======================================
+Space Travel Idle: Community Patch 0.1.1
+========================================
 
 For Space Travel Idle v0.35.43, the community version. Windows and Mac.
 
@@ -11,17 +11,22 @@ there.
 Before you start
 ----------------
 
-- Installing: close the game, then run the setup. The READ ME FIRST file
-  next to it walks you through it.
-  Win: "Setup Space Travel Idle Mod.bat"
-  Mac: "Setup Space Travel Idle Mod.command"
-- Everything is optional. All 44 patches are on when the menu opens.
-  Press Enter to take them all, or c to pick.
-- Your saves are never touched by the setup.
-- Taking it off: run the setup again and choose r. Every original game
-  file goes back.
-- After a Steam update or file check, run the setup again. Steam puts the
-  original files back, nothing breaks.
+- You need the community version v0.35.43 first. Izm_ shares it on the
+  Space Travel Idle Discord, and it is here too:
+  https://drive.google.com/file/d/12rzd9zlH0ixN5Saq7-1-CaeDvJwAeP3I/view?usp=sharing
+- Installing: no Python and no setup since 0.1.1. The READ ME FIRST file
+  walks you through it.
+  Win: unzip it into the game folder.
+  Mac: run "Install Community Patch.command".
+- Coming from 0.1: 0.1 wrote into the game's data file, 0.1.1 does not.
+  Win: double-click "Undo 0.1 game data.bat" in the game folder once.
+  Mac: the install script does it for you.
+- Everything is on. To turn something off, set its line to false in
+  BepInEx\config\STI Community Patch.cfg in the game folder, and restart
+  the game. That file appears after the game has started once.
+- Your saves are never touched.
+- A Steam file check puts back Steam's own game files, which takes out the
+  community version too. Put that back in afterwards.
 
 
 The Balancer
@@ -30,17 +35,17 @@ The Balancer
 I tuned this patch with a second mod on: the Unlocker by Berserker, which I
 call the Balancer. It lets you set the game's bonuses in a settings file.
 
-- The setup installs it for you, with the settings I used. Both lines are
-  on when the menu opens.
+- It comes with the patch, with the settings I used.
 - Without it and my settings, I lost every high level fight, trips took
   twice as long, and Big Bang paid nothing unless I beat my best score.
   You also get about a third of the drops and half the research.
-- Rather play the plain game? Untick "Balancer". Version 0.2 will be
+- Rather play the plain game? Delete BepInEx\plugins\STIU and
+  BepInEx\config\STIU.cfg in the game folder. Version 0.2 will be
   balanced for that too.
-- Already have it? Your own copy and settings are kept aside. Your settings
-  come back if you untick mine, your copy comes back when you choose r.
-- Not my work. Shared under its MIT licence, which the setup copies next to
-  it. Source: https://github.com/Berserker66/STIU
+- Already have your own settings for it? Keep a copy of your STIU.cfg, the
+  patch brings mine. On a Mac the install script keeps yours for you.
+- Not my work. Shared under its MIT licence, which sits next to it.
+  Source: https://github.com/Berserker66/STIU
 
 
 Offline changes
@@ -56,8 +61,9 @@ This patch adds one:
   They were asked for as upgrades that add offline days, and they needed a
   limit to add to.
 - Offline boss kills follow the same limit.
-- Rather have no limit? Untick "Offline time limit" in the installer.
-  You are back to the base game's unlimited offline time.
+- Rather have no limit? Set offline-cap = false in
+  BepInEx\config\STI Community Patch.cfg. You are back to the base game's
+  unlimited offline time.
   - The two Big Bang lines lock, since there is no limit for them to raise.
   - Levels you already own stay, and you can take them back down for a
     refund.
@@ -158,6 +164,16 @@ Known issues
   it, please say how it went, good or bad. Nothing there can hurt your save.
 
 
+Thanks
+------
+
+- Aya and Berk, two friends who started Space Travel Idle in 2020. This
+  patch is a fan project, not made by or with them.
+- Izm_, for sharing the community version. Without it there would be
+  nothing to patch.
+- Berserker, for the Unlocker.
+
+
 Found a problem?
 ----------------
 
@@ -165,8 +181,7 @@ Tell Fuzzied on Discord. Even "it looked odd for a second" helps.
 
 It saves a round of questions if you include:
 
-- The build number the setup prints at the top of its window.
-- Two log files:
+- Two log files. The first one also says which version you have.
   - LogOutput.log, in the BepInEx folder inside the game folder.
   - Player.log, which is here:
     Win: %userprofile%\AppData\LocalLow\Ayatsuji\SpaceTravelIdle
@@ -177,3 +192,6 @@ Version history
 ---------------
 
 - 0.1: first release.
+- 0.1.1: no Python and no setup. The same patches, made while the game
+  runs instead of written into its files. Windows unzips into the game
+  folder, Mac runs one script. One settings file to turn things off.

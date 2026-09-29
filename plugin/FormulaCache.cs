@@ -80,6 +80,12 @@ public class FormulaCachePlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("formula-cache", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Log = Logger;
         cfgAnswers = Config.Bind("General", "KeepAnswers", true,
             "Remember each formula's answer, so the game parses a drop, enemy or "

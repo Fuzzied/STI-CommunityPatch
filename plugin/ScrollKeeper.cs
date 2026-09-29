@@ -81,6 +81,12 @@ public class ScrollKeeperPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("scroll-keeper", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Log = Logger;
         Harmony harmony = new Harmony("sti.community.scrollkeeper");
         harmony.PatchAll(Assembly.GetExecutingAssembly());

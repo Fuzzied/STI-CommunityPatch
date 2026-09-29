@@ -396,6 +396,12 @@ public class FilterMemoryPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("filter-memory", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Log = Logger;
         shared = this;
         cfgEnabled = Config.Bind("Filter memory", "RestoreOnLoad", true,

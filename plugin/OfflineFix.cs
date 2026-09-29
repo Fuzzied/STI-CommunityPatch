@@ -48,6 +48,12 @@ public class OfflineFixPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("offline-fix", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Log = Logger;
 
         OfflineAwayTime.cfgShow = Config.Bind("Offline", "ShowHowLongYouWereAway",
@@ -624,9 +630,18 @@ public static class OfflineCap
     // Called from Awake, where BigBangManager.shared is still null and no
     // save is loaded, so there is no cap to report yet. Report the setting.
     // The real cap goes in the log once per load, from Apply.
+    // 0.1.1: two switches. The cap's own line in sti.community.offlinefix.cfg,
+    // and the offline-cap line in STI Community Patch.cfg, where every other
+    // part of the patch is switched. Either one set to false means no cap.
+    private static bool IsOn()
+    {
+        return cfgEnabled != null && cfgEnabled.Value
+            && CommunityToggle.IsOn("offline-cap");
+    }
+
     internal static string Describe()
     {
-        if (cfgEnabled == null || !cfgEnabled.Value)
+        if (!IsOn())
         {
             return "off, time away is credited in full like the base game";
         }
@@ -650,7 +665,7 @@ public static class OfflineCap
         lastCapSeconds = 0.0;
 
         if (broken || !wasLoad || seconds <= 0.0
-            || cfgEnabled == null || !cfgEnabled.Value)
+            || !IsOn())
         {
             return;
         }

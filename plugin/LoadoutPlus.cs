@@ -324,6 +324,12 @@ public class LoadoutPlusPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("more-loadouts", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Log = Logger;
         Harmony harmony = new Harmony("sti.community.loadoutplus");
         harmony.PatchAll(Assembly.GetExecutingAssembly());

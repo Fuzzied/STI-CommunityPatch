@@ -23,6 +23,9 @@ ROOT = os.path.dirname(SCRIPT_DIR)
 # written from the files, so it missed it too. check_release_zip.py and
 # build_github_repo.py refuse any player text that leaves one of these out.
 CREDITS = {
+    # Fuzzied, 29.09.2026, from the developers' own post: "two friends",
+    # signed "Aya & Berk". Berk is not Berserker as far as anyone knows.
+    "Aya and Berk": "made the game (Ayatsuji_San on Steam, published by Spaceive)",
     "Izm_": "shares the community version v0.35.43 the patch is made for",
     "Berserker": "made the Unlocker, which the setup installs as the Balancer",
 }
@@ -89,6 +92,76 @@ def data_files(m):
                 for rel in (op[1], op[2]):
                     yield (os.path.join(ROOT, rel),
                            rel.replace(os.sep, "/"))
+
+
+# ---- 0.1.1: no setup, the zip holds the game folder's new files as they land ----
+#
+# Fuzzied, 29.09.2026, "That that as a version 0.1.1": no Python. On Windows
+# the zip is unzipped straight into the game folder, so its layout IS the
+# game folder's. On a Mac the same files sit under files/ and the .command
+# copies them in. game_folder_files gives both, from one list.
+
+# What the player reads, kept out of the game folder's top level.
+DOCS_FOLDER = "STI Community Patch"
+DOCS = [
+    ("PATCH_NOTES.txt", "PATCH_NOTES.txt"),
+    # GPL 3 with Fuzzied as the holder, and the licences of everything we
+    # ship that other people made (28.09.2026, "GPL with Fuzzied").
+    ("LICENCE.txt", "LICENCE.txt"),
+    ("THIRD PARTY LICENCES.txt", "THIRD PARTY LICENCES.txt"),
+    # The one save repair job. It needs Python, and the readmes say so.
+    (os.path.join("tools", "repair_priority_order.py"), "tools/repair_priority_order.py"),
+]
+
+# The plugin that makes the game data changes in memory. Not in setup_mod's
+# CODE_PATCHES, because 0.1's setup wrote those changes to disk instead.
+DATA_PLUGIN = "DataPatches.dll"
+
+
+def docs_files():
+    for disk, name in DOCS:
+        yield os.path.join(ROOT, disk), DOCS_FOLDER + "/" + name
+
+
+def stiu_cfg(m):
+    """Write the Balancer settings file the setup used to write, and return
+    its path. Only the values: the Unlocker adds its comments itself the
+    first time the game starts, and keeps the values it finds."""
+    spec = next(p["cfg_values"] for p in m.CODE_PATCHES if p.get("cfg_values"))
+    path = os.path.join(ROOT, "build", "stage", spec["file"])
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    if os.path.exists(path):
+        os.remove(path)
+    for section, name, value in spec["values"]:
+        m.set_cfg_value(path, section, name, value)
+    return path, "BepInEx/config/" + spec["file"]
+
+
+def game_folder_files(m, payload_name, prefix=""):
+    """Every file the patch puts in the game folder, as (path on disk, name
+    in the zip). prefix is "" on Windows and "files/" on a Mac."""
+    payload = os.path.join(ROOT, "bepinex", payload_name)
+    for base, _dirs, files in os.walk(payload):
+        for name in sorted(files):
+            full = os.path.join(base, name)
+            yield full, prefix + os.path.relpath(full, payload).replace(os.sep, "/")
+    yield (os.path.join(ROOT, "plugin", DATA_PLUGIN),
+           prefix + "BepInEx/plugins/" + DATA_PLUGIN)
+    for patch in m.CODE_PATCHES:
+        for dll, folder in m.patch_dlls(patch):
+            where = prefix + "BepInEx/" + folder.replace(os.sep, "/") + "/"
+            yield os.path.join(ROOT, "plugin", dll), where + dll
+            if patch.get("licence"):
+                yield os.path.join(ROOT, "plugin", patch["licence"]), where + patch["licence"]
+        if patch.get("assets"):
+            src = os.path.join(ROOT, "assets", patch["assets"])
+            for base, _dirs, files in os.walk(src):
+                for name in sorted(files):
+                    full = os.path.join(base, name)
+                    yield full, (prefix + "BepInEx/plugins/" + patch["assets"] + "/"
+                                 + os.path.relpath(full, src).replace(os.sep, "/"))
+    cfg, name = stiu_cfg(m)
+    yield cfg, prefix + name
 
 
 def write_zip(out_path, entries, executable=(), crlf=()):
