@@ -20,9 +20,11 @@ Izm_'s post on Discord: <https://discord.com/channels/758755842861432832/1517349
 
 Go to the **Releases** page on the right and grab the zip for your system:
 
-Windows: `STI-CommunityPatch-0.1.1-Windows.zip`
+Windows: `STI-CommunityPatch-0.1.2-Windows.zip`
 
-Mac: `STI-CommunityPatch-0.1.1-Mac.zip`
+Mac: `STI-CommunityPatch-0.1.2-Mac.zip`
+
+Already on 0.1.1? `STI-CommunityPatch-0.1.2-update.zip` only swaps 10 files, for Windows and Mac. Its READ ME says how.
 
 You don't need anything else from this page to play. The rest is the source code, for the curious.
 
