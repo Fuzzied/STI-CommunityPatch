@@ -1,11 +1,13 @@
-Space Travel Idle Community Patch 0.1.1, Windows
+Space Travel Idle Community Patch 0.1.2, Windows
 ================================================
 
 Thanks for trying this. It is free of course.
 
-New in 0.1.1: No Python and no setup any more. You unzip it into the game
-folder and start the game. Everything is on, and one settings file turns
-things off.
+New in 0.1.2: The mod's settings lists fit your screen and scroll when they
+have to, and Esc closes the Welcome Back popup.
+
+There is no Python and no setup. You unzip it into the game folder and
+start the game. Everything is on, and one settings file turns things off.
 
 Your save is not in the game folder. It lives in your own AppData folder and
 nothing in here touches it.
@@ -25,9 +27,9 @@ Put that in first, the way its own readme says. Then come back here.
 Coming from 0.1?
 ----------------
 
-0.1 wrote its changes into the game's own data file. 0.1.1 makes them while
-the game runs instead, and it will not do that on top of 0.1's. So after
-you have unzipped 0.1.1 (below), double-click "Undo 0.1 game data.bat" in
+0.1 wrote its changes into the game's own data file. Since 0.1.1 the patch makes
+them while the game runs instead, and it will not do that on top of 0.1's. So after
+you have unzipped this one (below), double-click "Undo 0.1 game data.bat" in
 the game folder once, with the game closed. That is all. Your 0.1 settings
 and saves stay as they are.
 

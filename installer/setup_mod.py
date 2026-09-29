@@ -40,8 +40,8 @@ except Exception:
 # never see it: not in the zip names, not on the setup's first screen
 # (Fuzzied, 28.09.2026).
 # The mapping between them is kept in docs/version-map.md.
-PUBLIC_VERSION = "0.1.1"
-BUILD_VERSION = "0.9.40"
+PUBLIC_VERSION = "0.1.2"
+BUILD_VERSION = "0.9.41"
 # Kept as an alias: six tools and the Mac packager already read this name.
 MOD_VERSION = BUILD_VERSION
 GAME_EXE = "SpaceTravelIdle.exe"

@@ -1,4 +1,4 @@
-Space Travel Idle: Community Patch 0.1.1
+Space Travel Idle: Community Patch 0.1.2
 ========================================
 
 For Space Travel Idle v0.35.43, the community version. Windows and Mac.
@@ -18,7 +18,8 @@ Before you start
   walks you through it.
   Win: unzip it into the game folder.
   Mac: run "Install Community Patch.command".
-- Coming from 0.1: 0.1 wrote into the game's data file, 0.1.1 does not.
+- Coming from 0.1: 0.1 wrote into the game's data file, 0.1.1 and later
+  do not.
   Win: double-click "Undo 0.1 game data.bat" in the game folder once.
   Mac: the install script does it for you.
 - Everything is on. To turn something off, set its line to false in
@@ -146,6 +147,10 @@ Quality of life
 - The Big Bang window: the dark matter total no longer covers an
   upgrade.
 - The game window opens where you last left it (Windows, windowed mode).
+- The mod's settings lists fit your screen and scroll when they have to,
+  instead of running off the bottom.
+- The Welcome Back popup closes with Esc, and its X stays on screen in a
+  short window.
 
 Performance
 
@@ -195,3 +200,6 @@ Version history
 - 0.1.1: no Python and no setup. The same patches, made while the game
   runs instead of written into its files. Windows unzips into the game
   folder, Mac runs one script. One settings file to turn things off.
+- 0.1.2: the settings lists fit any screen and scroll, and the Welcome
+  Back popup can always be closed (Esc, or its X, which no longer ends up
+  off screen).

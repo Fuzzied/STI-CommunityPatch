@@ -41,7 +41,7 @@ using BepInEx.Logging;
 using HarmonyLib;
 using LargeNumbers;
 
-[BepInPlugin("sti.community.offlinefix", "STI Community Offline Fix", "1.4.0")]
+[BepInPlugin("sti.community.offlinefix", "STI Community Offline Fix", "1.5.0")]
 public class OfflineFixPlugin : BaseUnityPlugin
 {
     internal static ManualLogSource Log;
@@ -95,6 +95,12 @@ public class OfflineFixPlugin : BaseUnityPlugin
         Logger.LogInfo("Offline time away display: "
             + (OfflineAwayTime.cfgShow.Value ? "on" : "off"));
         Logger.LogInfo("Offline cap: " + OfflineCap.Describe());
+        Logger.LogInfo("Offline popup: Esc closes it, and it shrinks to keep its close button on screen");
+    }
+
+    private void Update()
+    {
+        OfflinePopupReach.Tick();
     }
 }
 
@@ -771,5 +777,184 @@ public static class LoadSaveOfflineCapGuard
     public static void Postfix()
     {
         OfflineCap.inSaveLoad = false;
+    }
+}
+
+// ---------------------------------------------------------------------------
+// 1.5.0. The Welcome Back panel could not be closed in a short window.
+//
+// Fuzzied, 30.09.2026: "Currently I am not able to click away the offline
+// screen, it needs to be removed if the player clicks Esc too", then "The x is
+// outside it". The close button sits outside the panel's top right corner, and
+// the panel is laid out for a tall screen. In his 1306x533 window the panel's
+// top was 8 pixels from the top of the window, so the button was above it,
+// with no other way out: the game has no key for it and the dark layer behind
+// the panel swallows every click.
+//
+// Two ways out now:
+//   - Esc closes it, through the panel's own Close, the same call the button
+//     makes (Overlay.HideOfflineProgressPanel).
+//   - When the panel and its button do not fit in the window, the panel is
+//     shrunk and nudged until they do, with a small margin. In a window where
+//     it already fits nothing changes. It measures again when the panel opens
+//     and whenever the window changes size, and it always works from the
+//     panel's original size and spot, so it can grow back.
+// ---------------------------------------------------------------------------
+public static class OfflinePopupReach
+{
+    private const float MARGIN = 8f;
+    // The layout settles over the first frames after the panel opens, and the
+    // game rescales a moment after a resize, so it measures for a few frames.
+    private const int SETTLE_FRAMES = 5;
+
+    private static UnityEngine.RectTransform panel;
+    private static UnityEngine.RectTransform button;
+    private static UnityEngine.Vector3 baseScale;
+    private static UnityEngine.Vector2 basePos;
+    private static bool wasOpen;
+    private static int lastW;
+    private static int lastH;
+    private static int pending;
+    private static string lastShape;
+
+    internal static void Tick()
+    {
+        try
+        {
+            OfflineProgressPanel shown = OfflineProgressPanel.shared;
+            bool open = shown != null && shown.gameObject.activeInHierarchy;
+            if (!open)
+            {
+                wasOpen = false;
+                return;
+            }
+
+            if (UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.Escape))
+            {
+                shown.Close();
+                wasOpen = false;
+                OfflineFixPlugin.Log.LogInfo("Offline popup: closed with Esc");
+                return;
+            }
+
+            if (panel == null || panel.gameObject != shown.gameObject)
+            {
+                panel = shown.transform as UnityEngine.RectTransform;
+                UnityEngine.Transform b = shown.transform.Find("ExitButton");
+                button = b == null ? null : b as UnityEngine.RectTransform;
+                if (panel == null)
+                {
+                    return;
+                }
+                baseScale = panel.localScale;
+                basePos = panel.anchoredPosition;
+                if (button == null)
+                {
+                    OfflineFixPlugin.Log.LogWarning("Offline popup: no ExitButton under the panel, only the panel itself is kept on screen");
+                }
+            }
+
+            if (!wasOpen || UnityEngine.Screen.width != lastW || UnityEngine.Screen.height != lastH)
+            {
+                wasOpen = true;
+                lastW = UnityEngine.Screen.width;
+                lastH = UnityEngine.Screen.height;
+                pending = SETTLE_FRAMES;
+            }
+            if (pending > 0)
+            {
+                pending--;
+                Fit();
+            }
+        }
+        catch (Exception e)
+        {
+            pending = 0;
+            OfflineFixPlugin.Log.LogWarning("Offline popup: " + e.Message);
+        }
+    }
+
+    private static void Fit()
+    {
+        UnityEngine.Canvas canvas = panel.GetComponentInParent<UnityEngine.Canvas>();
+        UnityEngine.Camera cam = null;
+        if (canvas != null && canvas.rootCanvas.renderMode != UnityEngine.RenderMode.ScreenSpaceOverlay)
+        {
+            cam = canvas.rootCanvas.worldCamera;
+        }
+
+        // Measure from the original size and spot every time.
+        SetIfChanged(baseScale, basePos);
+        UnityEngine.Rect box = Bounds(cam, true);
+        float px = Bounds(cam, false).height / (panel.rect.height * baseScale.y);
+        if (box.width <= 0f || box.height <= 0f || float.IsNaN(px) || px <= 0f)
+        {
+            return;
+        }
+        float needW = box.width;
+        float needH = box.height;
+
+        float roomW = UnityEngine.Screen.width - 2f * MARGIN;
+        float roomH = UnityEngine.Screen.height - 2f * MARGIN;
+        float s = UnityEngine.Mathf.Min(1f, UnityEngine.Mathf.Min(roomW / needW, roomH / needH));
+        UnityEngine.Vector3 scale = baseScale * s;
+        SetIfChanged(scale, basePos);
+
+        // Scaling works around the panel's pivot, so the button can still hang
+        // over an edge. Slide the whole thing back in.
+        box = Bounds(cam, true);
+        float dx = 0f;
+        float dy = 0f;
+        if (box.xMin < MARGIN) { dx = MARGIN - box.xMin; }
+        else if (box.xMax > UnityEngine.Screen.width - MARGIN) { dx = UnityEngine.Screen.width - MARGIN - box.xMax; }
+        if (box.yMin < MARGIN) { dy = MARGIN - box.yMin; }
+        else if (box.yMax > UnityEngine.Screen.height - MARGIN) { dy = UnityEngine.Screen.height - MARGIN - box.yMax; }
+        UnityEngine.Vector2 pos = basePos + new UnityEngine.Vector2(dx / px, dy / px);
+        SetIfChanged(scale, pos);
+
+        string shape = UnityEngine.Screen.width + "x" + UnityEngine.Screen.height + " " + s.ToString("0.000") + " " + dx.ToString("0") + "," + dy.ToString("0");
+        if (pending == 0 && shape != lastShape)
+        {
+            lastShape = shape;
+            string head = "Offline popup: window " + UnityEngine.Screen.width + "x" + UnityEngine.Screen.height
+                + ", panel and close button need " + needW.ToString("0") + "x" + needH.ToString("0") + " pixels";
+            if (s < 1f || dx != 0f || dy != 0f)
+            {
+                OfflineFixPlugin.Log.LogInfo(head + ", shrunk to " + (s * 100f).ToString("0") + "% and moved "
+                    + dx.ToString("0") + "," + dy.ToString("0") + " so the close button is on screen");
+            }
+            else
+            {
+                OfflineFixPlugin.Log.LogInfo(head + ", they fit as they are");
+            }
+        }
+    }
+
+    private static void SetIfChanged(UnityEngine.Vector3 scale, UnityEngine.Vector2 pos)
+    {
+        if (panel.localScale != scale) { panel.localScale = scale; }
+        if (panel.anchoredPosition != pos) { panel.anchoredPosition = pos; }
+    }
+
+    // The panel, and with withButton its close button too, in screen pixels,
+    // origin bottom left.
+    private static UnityEngine.Rect Bounds(UnityEngine.Camera cam, bool withButton)
+    {
+        float x0 = float.MaxValue, y0 = float.MaxValue, x1 = float.MinValue, y1 = float.MinValue;
+        UnityEngine.Vector3[] c = new UnityEngine.Vector3[4];
+        foreach (UnityEngine.RectTransform r in new UnityEngine.RectTransform[] { panel, withButton ? button : null })
+        {
+            if (r == null || !r.gameObject.activeInHierarchy) { continue; }
+            r.GetWorldCorners(c);
+            for (int i = 0; i < 4; i++)
+            {
+                UnityEngine.Vector2 p = UnityEngine.RectTransformUtility.WorldToScreenPoint(cam, c[i]);
+                x0 = UnityEngine.Mathf.Min(x0, p.x);
+                y0 = UnityEngine.Mathf.Min(y0, p.y);
+                x1 = UnityEngine.Mathf.Max(x1, p.x);
+                y1 = UnityEngine.Mathf.Max(y1, p.y);
+            }
+        }
+        return x1 < x0 ? new UnityEngine.Rect(0f, 0f, 0f, 0f) : new UnityEngine.Rect(x0, y0, x1 - x0, y1 - y0);
     }
 }
