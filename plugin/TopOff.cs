@@ -136,6 +136,12 @@ public class TopOffPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("top-off", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Log = Logger;
         cfgEnabled = Config.Bind("1 General", "TopOffCollectors", true,
             "Resource collectors run until the tank actually reaches your discard/lock "

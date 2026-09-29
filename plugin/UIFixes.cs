@@ -320,6 +320,12 @@ public class UIFixesPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("ui-fixes", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Log = Logger;
 
         cfgTameMessages = Config.Bind("Message log", "TameMessageLog", true,

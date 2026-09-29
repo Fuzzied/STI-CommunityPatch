@@ -310,6 +310,12 @@ public class BigBangExtrasPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("bigbang-extras", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Log = Logger;
 
         cfgGate = Config.Bind("1 Big Bang Plus", "RequireUranus", true,

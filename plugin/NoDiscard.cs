@@ -25,6 +25,12 @@ public class NoDiscardPlugin : BaseUnityPlugin
 {
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("no-discard", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Harmony harmony = new Harmony("sti.community.nodiscard");
         harmony.PatchAll(Assembly.GetExecutingAssembly());
         Logger.LogInfo("No-discard active: trash-can drop zone hidden");

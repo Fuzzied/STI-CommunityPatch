@@ -202,6 +202,12 @@ public class HotkeysPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("hotkeys", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Log = Logger;
         instance = this;
 

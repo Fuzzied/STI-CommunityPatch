@@ -2,9 +2,9 @@
 
 A free Community Patch for Space Travel Idle v0.35.43, the community version. Windows and Mac.
 
-Bugfixes, quality of life, new cards, new Big Bang upgrades and quite a lot of balance changes. Everything is optional. You tick what you want in the setup, and you can change your mind later by running it again.
+Bugfixes, quality of life, new cards, new Big Bang upgrades and quite a lot of balance changes. No Python and no setup since 0.1.1. Everything is on, and one settings file turns things off.
 
-Your saves are never touched by the setup. They live in your own user folder, not in the game folder.
+Your saves are never touched. They live in your own user folder, not in the game folder.
 
 ## You need the community version first
 
@@ -18,48 +18,57 @@ Izm_'s post on Discord: <https://discord.com/channels/758755842861432832/1517349
 
 Go to the **Releases** page on the right and grab the zip for your system:
 
-Windows: `STI-CommunityPatch-0.1-Windows.zip`
+Windows: `STI-CommunityPatch-0.1.1-Windows.zip`
 
-Mac: `STI-CommunityPatch-0.1-Mac.zip`
+Mac: `STI-CommunityPatch-0.1.1-Mac.zip`
 
 You don't need anything else from this page to play. The rest is the source code, for the curious.
 
 ## Installing
 
-Close the game first. Then unzip anywhere and open the READ ME FIRST file inside. It walks you through it.
-
-The setup runs on Python, so you need Python 3.9 or newer. You only do this once.
+Close the game first. The READ ME FIRST file in the zip has the details.
 
 ### Win:
 
-1. Go to <https://www.python.org/downloads/> and click the big Download button.
-2. On the first screen of the installer, tick "Add python.exe to PATH" at the bottom. This is the one people miss. Then click Install Now.
-3. Windows has a fake "python" that only opens the Microsoft Store, and it gets in the way. Search the Start menu for "Manage app execution aliases" and turn off both App Installer lines, python.exe and python3.exe.
-4. Run "Setup Space Travel Idle Mod.bat". The first time, it asks to install UnityPy. Just press Enter. It needs internet for that and takes a minute.
+1. Find the game folder. In Steam: right-click Space Travel Idle, Manage, Browse local files.
+2. Open the zip, press Ctrl+A, and drag everything into the game folder. Say yes if Windows asks about replacing files.
+3. Start the game from Steam as normal.
 
-To check Python worked: open CMD and type `python --version`. A version number means you're good.
+Careful with "Extract All": Windows adds the zip's name as one more folder at the end of the path. Delete that part, so it goes straight into the game folder.
 
 ### Mac:
 
-1. Go to <https://www.python.org/downloads/> and download the macOS installer. Use this one and not Homebrew, because Homebrew's Python refuses the package the setup needs.
-2. Run it and click through.
-3. Run "Setup Space Travel Idle Mod.command" and press Enter when it asks to install UnityPy.
+1. Unzip, then double-click "Install Community Patch.command". If macOS says it is from an unidentified developer, right-click it, choose Open, and click Open.
+2. It finds the game, puts the patch in, and copies one line for you. Paste that into Steam: right-click Space Travel Idle, Properties, General, Launch Options.
+3. Start the game from Steam as normal.
 
-If a box pops up asking to install developer tools, the Python from step 1 isn't in place yet.
+The Mac side has not been tested on a real Mac yet. If you try it, please tell me how it went.
+
+### Coming from 0.1
+
+0.1 wrote its changes into the game's data file. 0.1.1 makes them while the game runs instead.
+
+Win: double-click "Undo 0.1 game data.bat" in the game folder once, after unzipping.
+
+Mac: the install script does it for you.
+
+### Turning things off
+
+After the game has started once, open `BepInEx/config/STI Community Patch.cfg` in the game folder. Set a line to false and restart the game. The Balancer is its own mod: delete `BepInEx/plugins/STIU` and `BepInEx/config/STIU.cfg` to play without it.
 
 ### Taking it off
 
-Run the setup again and choose r. Every original game file goes back.
+Win: delete winhttp.dll from the game folder. To tidy up, also delete the BepInEx folder.
 
-After a Steam update or file check, just run the setup again. Steam puts the original files back, nothing breaks.
+Mac: clear the Launch Options line in Steam. To tidy up, also delete the BepInEx folder, run_bepinex.sh and libdoorstop.dylib.
 
 ## What is in here
 
-`plugin/`: The source of every mod in the patch. Each one is a small BepInEx plugin.
+`plugin/`: The source of every mod in the patch. Each one is a small BepInEx plugin. DataPatches makes the game data changes while the game loads, from `community_patches.json`.
 
-`installer/` and `setup_mod.py`: The setup itself, and the READ ME FIRST files.
+`installer/`: The READ ME FIRST files, the Mac install script and the 0.1 undo. `setup_mod.py` is where every patch is defined, and `tools/export_patches.py` turns it into `community_patches.json`. It was the setup in 0.1.
 
-`data/`: The new Big Bang upgrades the setup adds to the game.
+`data/`: The new Big Bang upgrades the patch adds to the game.
 
 `assets/`: The icons for the new cards and Big Bang upgrades.
 
@@ -81,9 +90,9 @@ Space Travel Idle is made by Aya and Berk, two friends who started it in 2020 (o
 
 A big thanks to Izm_ for sharing the community version. Without it there would be nothing to patch.
 
-The patch runs on [BepInEx](https://github.com/BepInEx/BepInEx) and [HarmonyX](https://github.com/BepInEx/HarmonyX). The setup edits the game's data with [UnityPy](https://github.com/K0lb3/UnityPy).
+The patch runs on [BepInEx](https://github.com/BepInEx/BepInEx) and [HarmonyX](https://github.com/BepInEx/HarmonyX). The build tools read the game's data with [UnityPy](https://github.com/K0lb3/UnityPy).
 
-The setup can also install the [Space Travel Idle Unlocker](https://github.com/Berserker66/STIU) by Berserker, which I call the Balancer. I tuned the patch with it on. All credit for it goes to Berserker.
+The patch also comes with the [Space Travel Idle Unlocker](https://github.com/Berserker66/STIU) by Berserker, which I call the Balancer. I tuned the patch with it on. All credit for it goes to Berserker.
 
 The full licences for all of these are in `THIRD PARTY LICENCES.txt`.
 

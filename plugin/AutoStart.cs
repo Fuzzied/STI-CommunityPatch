@@ -1814,6 +1814,12 @@ public class AutoStartPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("auto-start", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Log = Logger;
         shared = this;
         cfgEnabled = Config.Bind("Auto start", "Enabled", true,

@@ -111,6 +111,12 @@ public class CargoBayPlugin : BaseUnityPlugin
 
     private void Awake()
     {
+        // 0.1.1: off if the player set it to false in STI Community Patch.cfg
+        if (!CommunityToggle.On("cargo-bay", Logger))
+        {
+            enabled = false;
+            return;
+        }
         Log = Logger;
 
         cfgBallastTrim = Config.Bind("1 Ballast Trim", "Enabled", true,

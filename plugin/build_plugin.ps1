@@ -35,9 +35,21 @@ $extra = @{
     "CargoBay" = @("CargoDoors", "QuantumPocket", "CargoBayUI")
 }
 
-foreach ($name in @("SmoothDamage", "CommunityFixes", "NoDiscard", "AlchemyQoL", "LoadoutPlus", "UIFixes", "OfflineFix", "DevConsoleOff", "ScrollKeeper", "TooltipTime", "Hotkeys", "BigBangExtras", "FilterMemory", "AutoStart", "BigBangIcons", "CardIcons", "TopOff", "CargoBay", "PlanetaryMemory", "FormulaCache")) {
+# 0.1.1: every plugin asks CommunityToggle.cs whether the player turned it
+# off in BepInEx\config\STI Community Patch.cfg, so every one compiles it in.
+# DataPatches carries the game data changes, exported from setup_mod.py by
+# tools\export_patches.py, as an embedded resource, and reads it with its own
+# small JSON reader (Unity's JsonUtility returned no patches in the game).
+$patchList = Join-Path $here "community_patches.json"
+foreach ($name in @("SmoothDamage", "CommunityFixes", "NoDiscard", "AlchemyQoL", "LoadoutPlus", "UIFixes", "OfflineFix", "DevConsoleOff", "ScrollKeeper", "TooltipTime", "Hotkeys", "BigBangExtras", "FilterMemory", "AutoStart", "BigBangIcons", "CardIcons", "TopOff", "CargoBay", "PlanetaryMemory", "FormulaCache", "DataPatches")) {
     $out = Join-Path $here ($name + ".dll")
-    $sources = @(Join-Path $here ($name + ".cs"))
+    $sources = @((Join-Path $here ($name + ".cs")), (Join-Path $here "CommunityToggle.cs"))
+    $more_args = @()
+    if ($name -eq "DataPatches") {
+        if (-not (Test-Path $patchList)) { throw ("NOT FOUND: " + $patchList + "  (run tools\export_patches.py)") }
+        $more_args += ("/resource:" + $patchList + ",community_patches.json")
+        $more_args += ("/r:" + (Join-Path $managed "UnityEngine.TextRenderingModule.dll"))
+    }
     if ($shared -contains $name) {
         $sources += (Join-Path $here "CommunitySettings.cs")
     }
@@ -58,7 +70,7 @@ foreach ($name in @("SmoothDamage", "CommunityFixes", "NoDiscard", "AlchemyQoL",
         ("/r:" + (Join-Path $managed "UnityEngine.IMGUIModule.dll")) `
         ("/r:" + (Join-Path $managed "UnityEngine.ImageConversionModule.dll")) `
         ("/r:" + (Join-Path $managed "Unity.TextMeshPro.dll")) `
-        $sources
+        $more_args $sources
     if ($LASTEXITCODE -ne 0) { throw ("BUILD FAILED: " + $name) }
     if (Test-Path $out) { Write-Output ("built: " + $out) }
 }
@@ -70,7 +82,7 @@ foreach ($name in @("UIFixesEarlyWindow")) {
     & $csc /nologo /target:library /optimize+ ("/out:" + $out) `
         ("/r:" + (Join-Path $bepcore "BepInEx.dll")) `
         ("/r:" + (Join-Path $bepcore "Mono.Cecil.dll")) `
-        (Join-Path $here ($name + ".cs"))
+        (Join-Path $here ($name + ".cs")) (Join-Path $here "CommunityToggle.cs")
     if ($LASTEXITCODE -ne 0) { throw ("BUILD FAILED: " + $name) }
     if (Test-Path $out) { Write-Output ("built: " + $out) }
 }
