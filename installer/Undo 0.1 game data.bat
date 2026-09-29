@@ -1,5 +1,5 @@
 @echo off
-rem Space Travel Idle Community Patch 0.1.1: take out the game data 0.1 wrote.
+rem Space Travel Idle Community Patch 0.1.2: take out the game data 0.1 wrote.
 rem
 rem 0.1 changed the game's data file on disk and kept the untouched one next
 rem to it as resources.assets.backup-original. 0.1.1 makes its changes in
@@ -21,7 +21,7 @@ if errorlevel 1 goto failed
 fc /b "%BACKUP%" "%ASSETS%" >nul
 if errorlevel 1 goto failed
 del "%BACKUP%"
-echo Done. The game data is back to the community version, and 0.1.1 can
+echo Done. The game data is back to the community version, and the patch can
 echo make its changes. Start the game from Steam as normal.
 goto end
 

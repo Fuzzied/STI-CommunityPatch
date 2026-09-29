@@ -1,10 +1,13 @@
-Space Travel Idle Community Patch 0.1.1, Mac
+Space Travel Idle Community Patch 0.1.2, Mac
 ============================================
 
 Thanks for trying this. It is free of course.
 
-New in 0.1.1: No Python any more. One script puts it in, everything is on,
-and one settings file turns things off.
+New in 0.1.2: The mod's settings lists fit your screen and scroll when they
+have to, and Esc closes the Welcome Back popup.
+
+There is no Python. One script puts it in, everything is on, and one
+settings file turns things off.
 
 Nothing here has been tested on a real Mac yet. It is written against what
 the Mac build of the game should look like. If you try it, please tell me

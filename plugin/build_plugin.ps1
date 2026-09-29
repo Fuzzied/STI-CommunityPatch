@@ -20,9 +20,11 @@ $csc = "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
 # CommunitySettings.cs is the shared settings section the mod's own toggle rows
 # live in. BepInEx gives every plugin its own assembly and there is no shared
 # library to put it in, so every plugin that adds a settings row gets its own
-# copy compiled in. See the header of that file.
+# copy compiled in. See the header of that file. AutoStart has no row in that
+# section, but its own Auto start list scrolls and sizes by the same rule, so
+# it compiles the file in for the scrolling list.
 $shared = @("DevConsoleOff", "TooltipTime", "Hotkeys", "TopOff", "CargoBay",
-    "LoadoutPlus", "FilterMemory")
+    "LoadoutPlus", "FilterMemory", "AutoStart")
 
 # Plugins built from more than one source file. The three cargo lines are one
 # system - the doors ask the pocket whether a producer still has somewhere to

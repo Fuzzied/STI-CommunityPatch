@@ -6042,6 +6042,14 @@ public static class AutoStartSettingsPatch
     private const string CLONE_PREFIX = "CommunityAutoStartToggle";
     private const string SECTION_NAME = "CommunityAutoStartContainer";
 
+    // The rows scroll inside the section, placed and sized by
+    // CommunitySettingsFit in CommunitySettings.cs, the same as the
+    // community mod list beside it. They used to squash to fit the column
+    // and ran under the Discord icon, the version number and "Login Failed"
+    // on a short window, and past the bottom of the panel on a shorter one.
+    private const string SCROLL_NAME = "CommunityAutoStartScroll";
+    private const string ROWS_NAME = "CommunityAutoStartRows";
+
     // The one thing in the left hand column we can name. Everything else
     // about the panel is found by looking, so a reshuffle upstream costs us
     // nothing but the nicer position.
@@ -6197,6 +6205,22 @@ public static class AutoStartSettingsPatch
                 {
                     section = built;
                     host = built.transform;
+                    // Rows straight into the section if the list cannot be
+                    // built: squashed rows still work, missing ones do not.
+                    try
+                    {
+                        Transform list = CommunitySettings.ScrollList(
+                            built.transform, SCROLL_NAME, ROWS_NAME,
+                            CommunitySettingsFit.AUTO_START, templateRowHeight,
+                            fontCeiling, fontFloor, false, AutoStartPlugin.Log);
+                        if (list != null) { host = list; }
+                    }
+                    catch (Exception e)
+                    {
+                        AutoStartPlugin.Log.LogWarning(
+                            "Could not make the auto start list scroll: "
+                            + e.Message);
+                    }
                 }
             }
 
@@ -6501,6 +6525,9 @@ public static class AutoStartSettingsPatch
         }
     }
 
+    // The fallback for when the scrolling list could not be built (see
+    // SCROLL_NAME).
+    //
     // Seven full height rows are about 280 units of a column that only has so
     // much to give: the canvas is scaled to a 1920 wide reference matched on
     // WIDTH, so a 21:9 monitor gets about 810 units of height rather than
@@ -6513,6 +6540,13 @@ public static class AutoStartSettingsPatch
         try
         {
             if (section == null || templateRowHeight <= 0f) { return; }
+            // Only when the scrolling list could not be built and the rows
+            // sit in the section itself. In the list, CommunitySettingsFit
+            // sizes them every frame by the rule both columns share.
+            if (rows[0] == null || rows[0].transform.parent != section.transform)
+            {
+                return;
+            }
             RectTransform column = section.transform.parent as RectTransform;
             RectTransform outer = column == null
                 ? null : column.parent as RectTransform;

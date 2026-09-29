@@ -1,5 +1,5 @@
 {
- "build": "0.9.40",
+ "build": "0.9.41",
  "patches": [
   {
    "defaultOn": true,
@@ -2324,5 +2324,5 @@
    "title": "Cargo you can actually fly with"
   }
  ],
- "version": "0.1.1"
+ "version": "0.1.2"
 }

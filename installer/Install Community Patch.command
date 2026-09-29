@@ -77,7 +77,7 @@ candidates() {
     done
 }
 
-say "Space Travel Idle Community Patch 0.1.1, Mac install"
+say "Space Travel Idle Community Patch 0.1.2, Mac install"
 say "$(date)"
 say "macOS $(sw_vers -productVersion 2>/dev/null), $(uname -m)"
 say ""
