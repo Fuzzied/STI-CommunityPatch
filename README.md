@@ -74,6 +74,32 @@ Win: delete winhttp.dll from the game folder. To tidy up, also delete the BepInE
 
 Mac: clear the Launch Options line in Steam. To tidy up, also delete the BepInEx folder, run_bepinex.sh and libdoorstop.dylib.
 
+## If your antivirus flags it
+
+Some antivirus programs, and online scanners like VirusTotal, flag winhttp.dll. Now and then one of the plugin files too. That comes with how mod loaders work. It isn't something wrong with the patch.
+
+winhttp.dll is not the Windows file with the same name. It is Unity Doorstop, the small starter that comes with BepInEx. Windows finds it next to the game and loads it first, and that's how BepInEx gets into the game. Some real malware uses the same trick, so scanners react to the trick. And honestly that's a good thing. It means they are paying attention.
+
+The plugins get flagged for a simpler reason. They are small, unsigned files that almost nobody else has. A detection name with "Generic", "susgen" or "ML" in it is a scanner guessing, not a known virus.
+
+You don't have to take my word for it. The patch ships BepInEx 5.4.23.5 unchanged, straight from the official release: <https://github.com/BepInEx/BepInEx/releases/tag/v5.4.23.5>
+
+The fingerprints (SHA256) to check against:
+
+`BepInEx_win_x64_5.4.23.5.zip`: `82f9878551030f54657792c0740d9d51a09500eeae1fba21106b0c441e6732c4`
+
+`winhttp.dll` (inside that zip, and in the patch): `8c6cdbc38836dee87e3368f5de1994d7c0ccebf29e4ce7aba3c0981f9375412c`
+
+`BepInEx_macos_universal_5.4.23.5.zip`: `01c2ae782eb016dfd6c345a18dbd2dcafffb3d9d318449d6486689f426b4a323`
+
+GitHub shows the same fingerprints for the two zips on the BepInEx release page. To get the fingerprint of a file on Windows, run this in PowerShell, with your own path to the file:
+
+```
+Get-FileHash "C:\path\to\Space Travel Idle\winhttp.dll"
+```
+
+If your antivirus put a file in quarantine, restore it and add the game folder as an exclusion. And if anything still looks off to you, open an issue or ask me on the Discord. I'd rather you ask.
+
 ## What is in here
 
 `plugin/`: The source of every mod in the patch. Each one is a small BepInEx plugin. DataPatches makes the game data changes while the game loads, from `community_patches.json`.
