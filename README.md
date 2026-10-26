@@ -122,6 +122,20 @@ You need Windows, the game installed, and the patch installed once so BepInEx is
 powershell -ExecutionPolicy Bypass -File "C:\path\to\STI-CommunityPatch\plugin\build_plugin.ps1" -GameFolder "C:\path\to\Space Travel Idle"
 ```
 
+## Contributing
+
+Contributions are really welcome! It's been mostly me so far, but I'd love a hand.
+
+Post the idea first: Open an issue, or ping me on the game's Discord, before you start writing code. Then nobody spends an evening on something I've already changed or have planned.
+
+Work on the dev branch: `main` is the last release. The next version is built on `dev`, so send your pull requests there.
+
+No code from the game: Only our own code goes in. Nothing copied from the game itself, decompiled or otherwise. I check every pull request for it.
+
+Licence: Everything here is GPLv3, and so is anything you send in.
+
+How it lands: The repo is built from my working copy, so I copy your change in by hand instead of pressing merge. Your pull request gets closed with a note saying where it went, and your name goes in the patch notes.
+
 ## Credits
 
 Space Travel Idle is made by Aya and Berk, two friends who started it in 2020 (on Steam as Ayatsuji_San, published by Spaceive). This patch is a fan project and not made by or with them.
