@@ -79,6 +79,7 @@ internal static class CommunitySettings
     private static readonly string[] RowOrder =
     {
         "CommunityHideDevConsoleToggle",
+        "CommunityShowSocialRow",
         "CommunityTooltipTimeRow",
         "CommunityZoneKeyGateRow",
         "CommunityTopOffRow",

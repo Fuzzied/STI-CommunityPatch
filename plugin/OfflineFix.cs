@@ -41,7 +41,7 @@ using BepInEx.Logging;
 using HarmonyLib;
 using LargeNumbers;
 
-[BepInPlugin("sti.community.offlinefix", "STI Community Offline Fix", "1.5.0")]
+[BepInPlugin("sti.community.offlinefix", "STI Community Offline Fix", "1.6.0")]
 public class OfflineFixPlugin : BaseUnityPlugin
 {
     internal static ManualLogSource Log;
@@ -96,6 +96,7 @@ public class OfflineFixPlugin : BaseUnityPlugin
             + (OfflineAwayTime.cfgShow.Value ? "on" : "off"));
         Logger.LogInfo("Offline cap: " + OfflineCap.Describe());
         Logger.LogInfo("Offline popup: Esc closes it, and it shrinks to keep its close button on screen");
+        Logger.LogInfo("Offline overcharge fix active: the last step of a research or infra level costs its real price");
     }
 
     private void Update()
@@ -956,5 +957,145 @@ public static class OfflinePopupReach
             }
         }
         return x1 < x0 ? new UnityEngine.Rect(0f, 0f, 0f, 0f) : new UnityEngine.Rect(x0, y0, x1 - x0, y1 - y0);
+    }
+}
+
+// ---------------------------------------------------------------------------
+// 1.6.0. The offline catch-up overcharges the last step of every level.
+//
+// Found 02.10.2026: Fuzzied loaded after 6m13s away with 748,8M water, and the
+// catch-up took it down to 8,4M while Camp Neptune went 0 to 74, which costs
+// 41,6M by the game's own rule. About 18 times the real price.
+//
+// The catch-up runs in steps, and a step at speed s stands for s real ticks
+// (OfflineManager.ScheduleFastSimulation: a 6 minute gap runs at 18 and 9, a
+// 12 day gap starts at 51 840). Infra.Tick and Research.Tick do, for energy
+// and for the resource alike:
+//
+//   amount = remaining cost of this level
+//   if (maxInput * s < amount) amount = maxInput * s;   // "capped"
+//   Take(amount, s);              // takes amount * s
+//   progress += amount / cost * s, then clamped to 100%
+//
+// In the capped branch the take and the progress agree, so the price is fair.
+// In the other branch, where the rest of the level fits in one step, it takes
+// the remaining cost times s, and progress stops at 100%. Everything above the
+// remaining cost is simply lost. At speed 51 840 a cheap level costs 51 840
+// times its price.
+//
+// The fix leaves the game's code alone and lowers the step cap it is handed,
+// only in that branch, to remaining / s^2 (plus a hair). The game then takes
+// its own capped branch with amount = remaining / s, takes exactly the
+// remaining cost, and progress lands on 100%. The hair (one part in a
+// billion) makes sure rounding cannot leave the level at 99,9999999% and cost
+// a whole extra step of time.
+//
+// Untouched on purpose:
+//   - Online play: speed 1 never reaches the broken branch's multiplier.
+//   - The capped branch. It lets a level progress up to s times faster per
+//     step than online, at a fair price. That is how the base game plays
+//     offline, and changing it would make offline progress far slower. It is
+//     in the balance notes for Fuzzied, not fixed here.
+//   - Short stock. If you cannot pay the remainder, the game already takes
+//     only what is there, in both branches, and this changes nothing.
+// ---------------------------------------------------------------------------
+public static class OfflineOvercharge
+{
+    // One part in a billion over the remaining cost, see above.
+    private const double HAIR = 1.0 + 1e-9;
+
+    internal static int energySteps;
+    internal static int resourceSteps;
+    // Every catch-up step the fix looked at, so the report can say "looked,
+    // nothing to fix" instead of staying silent. A silent zero proves nothing.
+    internal static long looked;
+
+    /// <summary>
+    /// The step cap to hand the game. Unchanged unless the rest of the level
+    /// fits in this step, which is exactly when the game would overcharge.
+    /// </summary>
+    internal static ScientificNotation Cap(ScientificNotation remaining,
+        ScientificNotation maxInput, int speed, bool energy)
+    {
+        if (speed <= 1 || remaining <= ScientificNotation.zero)
+        {
+            return maxInput;
+        }
+        looked++;
+        if (maxInput * (double)speed < remaining)
+        {
+            return maxInput;
+        }
+        if (energy) { energySteps++; } else { resourceSteps++; }
+        double s = speed;
+        return remaining * (HAIR / (s * s));
+    }
+
+    internal static void Report()
+    {
+        // These count steps where the rest of a level fit in one step, not
+        // levels. When stock is short (a reserve, or an empty tank) the same
+        // level can hit this many steps in a row, and the stock game already
+        // took only what was there. Measured 16.10.2026: 800 such steps, 18 levels.
+        OfflineFixPlugin.Log.LogInfo("Offline overcharge fix: looked at " + looked
+            + " catch-up steps of unfinished levels; in " + energySteps
+            + " energy and " + resourceSteps
+            + " resource steps the rest of a level fit, and those asked for the rest, not the rest times the catch-up speed");
+        energySteps = 0;
+        resourceSteps = 0;
+        looked = 0;
+    }
+}
+
+[HarmonyPatch(typeof(Infra), "Tick")]
+public static class InfraTickOverchargeFix
+{
+    public static void Prefix(Infra __instance, int offlineSimulationSpeed,
+        ref ScientificNotation tickInfraEnergyMaxInput,
+        ref ScientificNotation tickInfraResourceMaxInput)
+    {
+        if (offlineSimulationSpeed <= 1)
+        {
+            return;
+        }
+        tickInfraEnergyMaxInput = OfflineOvercharge.Cap(__instance.remainingBuildEnergyCost,
+            tickInfraEnergyMaxInput, offlineSimulationSpeed, true);
+        ElementBatch rest = __instance.remainingBuildResourceCost;
+        if (rest != null)
+        {
+            tickInfraResourceMaxInput = OfflineOvercharge.Cap(rest.amount,
+                tickInfraResourceMaxInput, offlineSimulationSpeed, false);
+        }
+    }
+}
+
+[HarmonyPatch(typeof(Research), "Tick")]
+public static class ResearchTickOverchargeFix
+{
+    public static void Prefix(Research __instance, int offlineSimulationSpeed,
+        ref ScientificNotation tickResearchEnergyMaxInput,
+        ref ScientificNotation tickResearchResourceMaxInput)
+    {
+        if (offlineSimulationSpeed <= 1)
+        {
+            return;
+        }
+        tickResearchEnergyMaxInput = OfflineOvercharge.Cap(__instance.remainingResearchEnergyCost,
+            tickResearchEnergyMaxInput, offlineSimulationSpeed, true);
+        ElementBatch rest = __instance.remainingResearchResourceCost;
+        if (rest != null)
+        {
+            tickResearchResourceMaxInput = OfflineOvercharge.Cap(rest.amount,
+                tickResearchResourceMaxInput, offlineSimulationSpeed, false);
+        }
+    }
+}
+
+[HarmonyPatch(typeof(OfflineManager), "FinishSimulation")]
+public static class FinishSimulationOverchargeReport
+{
+    public static void Postfix()
+    {
+        OfflineOvercharge.Report();
     }
 }

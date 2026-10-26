@@ -40,8 +40,8 @@ except Exception:
 # never see it: not in the zip names, not on the setup's first screen
 # (Fuzzied, 28.09.2026).
 # The mapping between them is kept in docs/version-map.md.
-PUBLIC_VERSION = "0.1.2"
-BUILD_VERSION = "0.9.41"
+PUBLIC_VERSION = "0.2"
+BUILD_VERSION = "0.9.42"
 # Kept as an alias: six tools and the Mac packager already read this name.
 MOD_VERSION = BUILD_VERSION
 GAME_EXE = "SpaceTravelIdle.exe"
@@ -171,7 +171,23 @@ UNTRANSLATED = [
 # shipped what set_asset names, so this one was left out of every release zip
 # and a player's new Big Bang cards would have shown raw lookup keys.
 NEW_LINES_FILE = os.path.join("data", "bigBangUpgrades_NEWLINES.json")
-EXTRA_DATA_FILES = [NEW_LINES_FILE]
+# Since 0.2 the extended Big Bang table is text replacements on the game's
+# own table rather than a whole copy of it (see tools/gen_bigbang.py).
+BIGBANG_OPS_FILE = os.path.join("data", "bigBangUpgrades_OPS.json")
+EXTRA_DATA_FILES = [NEW_LINES_FILE, BIGBANG_OPS_FILE]
+
+
+def _load_bigbang_ops():
+    """The 'bigbang-plus' replacements tools/gen_bigbang.py wrote.
+
+    Missing returns nothing, so the other tools that import this file still
+    work; tools/export_patches.py refuses to export a bigbang-plus without them.
+    """
+    try:
+        with open(os.path.join(ROOT_DIR, BIGBANG_OPS_FILE), encoding="utf-8") as fh:
+            return [("replace", o["a"], o["b"], 1) for o in json.load(fh)]
+    except Exception:
+        return []
 
 
 def _load_new_bigbang_lines():
@@ -1367,14 +1383,15 @@ PATCHES = [
             "   Your existing upgrade levels are kept - nothing is reset."
         ),
         "default": True,
-        # The whole file is rewritten (see tools/gen_bigbang.py), because
-        # appending five tiers to 22 lines plus five new lines is far past
-        # what a list of text replacements can express readably. The sha256
-        # check makes it refuse just as loudly on a game version it does not
-        # recognise.
+        # 0.1 and 0.1.1 swapped in a whole copy of the extended table, so the
+        # zip carried the developer's numbers for all 22 lines. Since 0.2
+        # (Fuzzied, 28.09.2026: "fix it in 0.2") it is one replacement per
+        # vanilla line, written by tools/gen_bigbang.py: that line's tier 10,
+        # then our five tiers after it, and our new lines after the last one.
+        # Each search text holds the tier 10 the new prices were worked out
+        # from, so a changed game refuses instead of getting the wrong prices.
         "asset": "bigBangUpgrades",
-        "ops": [("set_asset", os.path.join("data", "bigBangUpgrades_VANILLA.sha256"),
-                 os.path.join("data", "bigBangUpgrades_PLUS.json"))],
+        "ops": _load_bigbang_ops(),
         "verify": [("reduce_travel_time", '"eqTemplate": "65"'),
                    ("deterioration_floor_up", '"type": 21'),
                    ("star_essence_gain_up", '"type": 34')],
@@ -1587,7 +1604,10 @@ CODE_PATCHES = [
             "   the same way. This skips the upload - there is nothing to upload\n"
             "   to offline - and lets the load finish normally. The same file\n"
             "   carries the offline time limit below and the Time away line on\n"
-            "   the Welcome Back panel, so turning this off takes those too."
+            "   the Welcome Back panel, so turning this off takes those too.\n"
+            "   It also fixes the offline catch-up charging far too much for\n"
+            "   the last bit of a research or infra level (up to thousands of\n"
+            "   times the price after a long time away)."
         ),
         "default": True,
         "plugin": "OfflineFix.dll",
@@ -1730,7 +1750,7 @@ CODE_PATCHES = [
     },
     {
         "key": "dev-console",
-        "title": "Hide the developer error console",
+        "title": "Hide the developer error console, and Settings clutter",
         "desc": (
             "On the beta and beta-danger branches, and on every Mac, the game\n"
             "   is a Unity DEVELOPMENT build. There any engine error throws a\n"
@@ -1744,7 +1764,12 @@ CODE_PATCHES = [
             "   On the normal Windows branch the box never appears, so there\n"
             "   this does nothing and costs nothing.\n"
             "   Note: the small 'Development Build' watermark in the corner is\n"
-            "   drawn by the engine itself and cannot be removed this way."
+            "   drawn by the engine itself and cannot be removed this way.\n"
+            "   It also tidies the Settings panel's bottom left corner. The\n"
+            "   'Login Failed.' line is hidden, because on the community version\n"
+            "   it always says failed even when you are logged in. And a 'Show\n"
+            "   Discord and Twitter buttons' switch lets you hide those two\n"
+            "   buttons. They show by default."
         ),
         "default": True,
         "plugin": "DevConsoleOff.dll",

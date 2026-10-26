@@ -61,6 +61,15 @@ def main():
     sys.path.insert(0, os.path.join(ROOT, "installer"))
     import setup_mod as m
 
+    # Since 0.2 bigbang-plus is read from data\bigBangUpgrades_OPS.json, and
+    # setup_mod.py quietly gives no ops when that file is missing. Exporting
+    # that would ship a patch that fails its own check in every game.
+    bb = [p for p in m.PATCHES if p["key"] == "bigbang-plus"]
+    if bb and len(bb[0]["ops"]) != 22:
+        raise SystemExit("REFUSED: bigbang-plus has %d replacements, expected 22 "
+                         "(one per vanilla line). Run tools\\gen_bigbang.py."
+                         % len(bb[0]["ops"]))
+
     out = []
     for p in m.PATCHES:
         spoiler = p["key"] in m.SAFE_TITLES

@@ -30,6 +30,20 @@
 // the serialized listeners too, so the copy would otherwise still call
 // SettingsManager.SetCardHideControlUIs), then re-label it.
 //
+// 1.2.0 also tidies the Settings panel's bottom left corner. Fuzzied,
+// 29.09.2026: "I like to be able to remove the login fail and the social
+// media buttons too though". Both sit under the Auto start list and take its
+// room.
+//   - "Login Failed." is hidden whenever it says failed. It is a false alarm:
+//     the community version answers the title screen's login question
+//     ("Welcome, Fuzzy!") but not the one Settings asks, so Settings always
+//     says failed. A real success line still shows.
+//   - The Discord and Twitter buttons get a "Show Discord and Twitter
+//     buttons" row in the Community mod list, on by default, because they are
+//     the game's own links.
+// The settings lists skip anything hidden when they measure (see
+// CommunitySettingsFit), so the Auto start list gets the room back by itself.
+//
 // Compiled with the .NET Framework 4 csc against the game's own
 // Assembly-CSharp.dll and the BepInEx 5 core DLLs (see build_plugin.ps1).
 
@@ -40,12 +54,13 @@ using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
 
-[BepInPlugin("sti.community.devconsole", "STI Community Dev Console", "1.1.1")]
+[BepInPlugin("sti.community.devconsole", "STI Community Dev Console", "1.2.0")]
 public class DevConsoleOffPlugin : BaseUnityPlugin
 {
     // PlayerPrefs is what the game's own settings use, so the choice
     // survives a restart the same way fullscreen and card-UI hiding do.
     public const string PREF_KEY = "communityHideDevConsole";
+    public const string SOCIAL_PREF_KEY = "communityShowSocialButtons";
 
     internal static ManualLogSource Log;
 
@@ -60,6 +75,16 @@ public class DevConsoleOffPlugin : BaseUnityPlugin
                 return;
             }
             Debug.developerConsoleVisible = false;
+        }
+    }
+
+    public static bool ShowSocial
+    {
+        get { return PlayerPrefs.GetInt(SOCIAL_PREF_KEY, 1) == 1; }
+        set
+        {
+            PlayerPrefs.SetInt(SOCIAL_PREF_KEY, value ? 1 : 0);
+            SettingsCorner.ApplySocial();
         }
     }
 
@@ -101,11 +126,40 @@ public class DevConsoleOffPlugin : BaseUnityPlugin
 public static class AddDevConsoleTogglePatch
 {
     private const string CLONE_NAME = "CommunityHideDevConsoleToggle";
+    private const string SOCIAL_NAME = "CommunityShowSocialRow";
+
+    private const string CONSOLE_TIP = "On the beta branches and on Mac the game "
+        + "is a Unity development build, so any engine error at all "
+        + "throws a black console box with red text across the "
+        + "middle of the screen. Most often it happens when your "
+        + "audio device changes. It cannot be dismissed for good and "
+        + "comes straight back on the next one. This keeps it "
+        + "hidden. On the normal Windows branch the box never "
+        + "appears, so there this does nothing. It has nothing to do "
+        + "with the small \"Development Build\" watermark in the "
+        + "corner, which is baked into the engine and cannot be "
+        + "removed.";
+
+    private const string SOCIAL_TIP = "The Discord and Twitter buttons in the "
+        + "bottom left corner of this panel. They are the game's own links, "
+        + "so they show by default. Turn this off to hide them and give the "
+        + "Auto start list their room.";
 
     private static readonly FieldInfo HideCardUiToggleField =
         AccessTools.Field(typeof(SettingsManager), "hideCardControlUIToggle");
 
     public static void Postfix(SettingsManager __instance)
+    {
+        AddRow(__instance, CLONE_NAME, "Hide error console",
+            DevConsoleOffPlugin.HideConsole, OnToggleChanged, CONSOLE_TIP);
+        AddRow(__instance, SOCIAL_NAME, "Show Discord and Twitter buttons",
+            DevConsoleOffPlugin.ShowSocial, OnSocialChanged, SOCIAL_TIP);
+    }
+
+    // Both rows are built the same way, off the same vanilla row.
+    private static void AddRow(SettingsManager __instance, string cloneName,
+        string text, bool isOn, UnityEngine.Events.UnityAction<bool> changed,
+        string tooltip)
     {
         try
         {
@@ -119,13 +173,13 @@ public static class AddDevConsoleTogglePatch
                 return;
             }
             Transform parent = template.transform.parent;
-            if (CommunitySettings.AlreadyAdded(template, CLONE_NAME))
+            if (CommunitySettings.AlreadyAdded(template, cloneName))
             {
                 return; // LoadSystemSettings can run again; only clone once
             }
 
             GameObject clone = Object.Instantiate(template.gameObject, parent);
-            clone.name = CLONE_NAME;
+            clone.name = cloneName;
 
             // Into the mod's own section at the foot of the column, under
             // Language. Fuzzied asked for every setting the mod adds to sit
@@ -170,13 +224,13 @@ public static class AddDevConsoleTogglePatch
             // copied listeners first, then set the state while nothing is
             // wired, then add ours.
             toggle.onValueChanged = new Toggle.ToggleEvent();
-            toggle.isOn = DevConsoleOffPlugin.HideConsole;
-            toggle.onValueChanged.AddListener(OnToggleChanged);
+            toggle.isOn = isOn;
+            toggle.onValueChanged.AddListener(changed);
 
             LangText label = clone.GetComponentInChildren<LangText>(true);
             if (label != null)
             {
-                label.SetLocalisedText("Hide error console");
+                label.SetLocalisedText(text);
             }
 
             // Fuzzied: "is it possible to have a small pop-up text explaining
@@ -184,29 +238,19 @@ public static class AddDevConsoleTogglePatch
             // whenever the object carries no ITooltipAvailable of its own.
             TooltipComposite tip = clone.GetComponent<TooltipComposite>();
             if (tip == null) { tip = clone.AddComponent<TooltipComposite>(); }
-            tip.defaultTooltip = "On the beta branches and on Mac the game "
-                + "is a Unity development build, so any engine error at all "
-                + "throws a black console box with red text across the "
-                + "middle of the screen. Most often it happens when your "
-                + "audio device changes. It cannot be dismissed for good and "
-                + "comes straight back on the next one. This keeps it "
-                + "hidden. On the normal Windows branch the box never "
-                + "appears, so there this does nothing. It has nothing to do "
-                + "with the small \"Development Build\" watermark in the "
-                + "corner, which is baked into the engine and cannot be "
-                + "removed.";
+            tip.defaultTooltip = tooltip;
 
             DevConsoleOffPlugin.Log.LogInfo(
-                "Settings: added 'Hide error console' toggle (on="
+                "Settings: added '" + text + "' toggle (on="
                 + toggle.isOn + ")");
         }
         catch (System.Exception e)
         {
             // A throw here would repeat on every settings load, so it is
             // swallowed deliberately - worst case the toggle is missing and
-            // the default (suppressed) still applies.
+            // the default still applies.
             DevConsoleOffPlugin.Log.LogWarning(
-                "Could not add the dev console toggle: " + e.Message);
+                "Could not add the '" + text + "' toggle: " + e.Message);
         }
     }
 
@@ -214,5 +258,112 @@ public static class AddDevConsoleTogglePatch
     {
         DevConsoleOffPlugin.HideConsole = isOn;
         DevConsoleOffPlugin.Log.LogInfo("Hide error console set to " + isOn);
+    }
+
+    private static void OnSocialChanged(bool isOn)
+    {
+        DevConsoleOffPlugin.ShowSocial = isOn;
+        DevConsoleOffPlugin.Log.LogInfo("Show Discord and Twitter buttons set to " + isOn);
+    }
+}
+
+// The Settings panel's bottom left corner: the login line and the Discord
+// and Twitter buttons. SystemPanel.Start calls UpdateLoginStatusLabel the
+// first time the panel opens, and it is the only place the login line is
+// written, so this is where both are set.
+[HarmonyPatch(typeof(SystemPanel), "UpdateLoginStatusLabel")]
+public static class SettingsCorner
+{
+    private static readonly FieldInfo LoginLabelField =
+        AccessTools.Field(typeof(SystemPanel), "loginStatusLabel");
+
+    private static SystemPanel panel;
+    private static bool logged;
+
+    public static void Postfix(SystemPanel __instance)
+    {
+        try
+        {
+            panel = __instance;
+            LangText label = LoginLabel(__instance);
+            if (label != null)
+            {
+                bool ok = GlobalSave.shared != null && GlobalSave.shared.GetLoginStatus();
+                label.gameObject.SetActive(ok);
+                if (!logged)
+                {
+                    DevConsoleOffPlugin.Log.LogInfo("Settings: login line '"
+                        + label.gameObject.name + "' " + (ok ? "shown (logged in)"
+                        : "hidden (says failed)"));
+                }
+            }
+            ApplySocial();
+            logged = true;
+        }
+        catch (System.Exception e)
+        {
+            DevConsoleOffPlugin.Log.LogWarning(
+                "Could not tidy the settings corner: " + e.Message);
+        }
+    }
+
+    // Shows or hides the Discord and Twitter buttons to match the switch.
+    // Before the panel has ever opened there is nothing to do: the postfix
+    // above runs when it does.
+    internal static void ApplySocial()
+    {
+        if (panel == null)
+        {
+            return;
+        }
+        Transform social = FindSocial(panel);
+        if (social == null)
+        {
+            if (!logged)
+            {
+                DevConsoleOffPlugin.Log.LogWarning(
+                    "Settings: no SocialBtns found, the buttons stay as they are");
+            }
+            return;
+        }
+        bool show = DevConsoleOffPlugin.ShowSocial;
+        if (social.gameObject.activeSelf != show)
+        {
+            social.gameObject.SetActive(show);
+        }
+        if (!logged)
+        {
+            DevConsoleOffPlugin.Log.LogInfo("Settings: Discord and Twitter buttons "
+                + (show ? "shown" : "hidden"));
+        }
+    }
+
+    private static LangText LoginLabel(SystemPanel p)
+    {
+        return LoginLabelField == null ? null : LoginLabelField.GetValue(p) as LangText;
+    }
+
+    // Beside the login line, which is where CommunitySettings finds it too;
+    // failing that, anywhere under the panel.
+    private static Transform FindSocial(SystemPanel p)
+    {
+        LangText label = LoginLabel(p);
+        if (label != null && label.transform.parent != null)
+        {
+            Transform near = label.transform.parent.Find("SocialBtns");
+            if (near != null)
+            {
+                return near;
+            }
+        }
+        Transform[] all = p.GetComponentsInChildren<Transform>(true);
+        for (int i = 0; i < all.Length; i++)
+        {
+            if (all[i].name == "SocialBtns")
+            {
+                return all[i];
+            }
+        }
+        return null;
     }
 }

@@ -219,6 +219,17 @@ def main():
             print("patched  %-28s DIFFERENT at char %d\n    python: %r\n    c#:     %r"
                   % (name, i, a[max(0, i - 60):i + 60], b[max(0, i - 60):i + 60]))
             bad += 1
+    # 0.2 builds the Big Bang table from replacements instead of shipping it
+    # whole. On this machine the whole table from 0.1.2 still exists, so the
+    # result must be exactly it: same game data as 0.1.2, less in the zip.
+    plus = os.path.join(ROOT, "data", "bigBangUpgrades_PLUS.json")
+    if os.path.isfile(plus) and "bigBangUpgrades" in py:
+        with io.open(plus, encoding="utf-8", newline="") as fh:
+            whole = fh.read()
+        if py["bigBangUpgrades"] == whole:
+            print("bigBangUpgrades is exactly the whole table 0.1.2 shipped")
+        else:
+            print("bigBangUpgrades DIFFERS from the whole table 0.1.2 shipped"); bad += 1
     if bad:
         raise SystemExit("FAIL: %d table(s) differ" % bad)
     print("PASS: all %d tables byte for byte the same" % len(names))

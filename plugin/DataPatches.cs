@@ -469,6 +469,8 @@ public class DataPatchesPlugin : BaseUnityPlugin
         }
         catch (CommunityPatchError e)
         {
+            string game = GameVersion();
+            string wrong = WrongVersionHint(game);
             string was01 = LooksPatchedBy01()
                 ? " Your game data still has the 0.1 changes on disk. "
                   + (Application.platform == RuntimePlatform.OSXPlayer
@@ -476,9 +478,17 @@ public class DataPatchesPlugin : BaseUnityPlugin
                      : "Close the game, double-click \"Undo 0.1 game data.bat\" in the game folder, "
                        + "then start the game again.")
                 : " Your game files differ from the community version 0.35.43 this patch is made for.";
+            // A known wrong game says so and nothing else: which text failed
+            // to match means nothing to a player on the wrong game, and the
+            // log still has it below.
             Problem = "The game data changes were NOT applied, the game runs with its own data. "
-                + e.Message + "." + was01;
+                + (wrong != null && !LooksPatchedBy01() ? wrong : e.Message + "." + was01);
             Log.LogError("Data patches: " + Problem);
+            if (wrong != null)
+            {
+                Log.LogError("Data patches: the game is " + game + "; the first change that did not fit: "
+                    + e.Message);
+            }
             return;
         }
 
@@ -493,6 +503,72 @@ public class DataPatchesPlugin : BaseUnityPlugin
         }
         Log.LogInfo("Data patches: " + patches + " patch(es) applied to " + built.Count
             + " table(s): " + string.Join(", ", order.ToArray()));
+    }
+
+    // The game's own version, from its meta table: "0.3.5.43" for the
+    // community version. Read straight from Resources, past the postfix,
+    // because meta is not a table this patch changes. Null when unreadable.
+    //
+    // Why: players on the wrong game got "Your game files differ" and a list
+    // of texts that did not match, which names no fix. The ones seen so far
+    // (docs\game-versions.md): Steam's public build without the community
+    // files (0.3.5 build 40), and on Mac the beta branches, which still hold
+    // the old game 0.2.2.
+    internal static string GameVersion()
+    {
+        try
+        {
+            TextAsset meta = Resources.Load<TextAsset>(Path.Combine("JSONData", "meta"));
+            if (meta == null)
+            {
+                return null;
+            }
+            string version = MetaValue(meta.text, "version");
+            string build = MetaValue(meta.text, "buildNo");
+            if (string.IsNullOrEmpty(version))
+            {
+                return null;
+            }
+            return string.IsNullOrEmpty(build) ? version : version + "." + build;
+        }
+        catch (Exception)
+        {
+            return null;
+        }
+    }
+
+    // "key": "value" or "key": 43, whichever the meta table uses.
+    private static string MetaValue(string json, string key)
+    {
+        System.Text.RegularExpressions.Match m = System.Text.RegularExpressions.Regex.Match(
+            json, "\"" + key + "\"\\s*:\\s*\"?([^\",}\\s]*)");
+        return m.Success ? m.Groups[1].Value : null;
+    }
+
+    // What to tell a player whose game is not the community version 0.35.43.
+    // Null when the version is the right one, or could not be read: then the
+    // usual message stands.
+    internal static string WrongVersionHint(string game)
+    {
+        if (string.IsNullOrEmpty(game) || game == "0.3.5.43")
+        {
+            return null;
+        }
+        if (game.StartsWith("0.2."))
+        {
+            return "Your game is version " + game + ", the old game Steam still gives Mac players "
+                + "on the beta branches. In Steam, open Space Travel Idle's Properties, then Betas, "
+                + "and set Beta Participation to None. Let Steam update the game, then install the "
+                + "community version 0.35.43 again, and this patch after it.";
+        }
+        if (game == "0.3.5.40")
+        {
+            return "Your game is version 0.3.5 build 40, the Steam version without the community "
+                + "files. This patch sits on top of the community version 0.35.43. Install that "
+                + "first, then unzip this patch again.";
+        }
+        return "Your game is version " + game + ". This patch is made for the community version "
+            + "0.35.43 (0.3.5 build 43). Install that, then unzip this patch again.";
     }
 
     private static bool LooksPatchedBy01()
@@ -715,13 +791,16 @@ public class DataPatchesPlugin : BaseUnityPlugin
             return;
         }
         float w = Mathf.Min(900f, Screen.width - 40f);
-        Rect box = new Rect((Screen.width - w) / 2f, 30f, w, 190f);
         GUIStyle style = new GUIStyle(GUI.skin.box);
         style.fontSize = 20;
         style.wordWrap = true;
         style.alignment = TextAnchor.UpperLeft;
         style.padding = new RectOffset(16, 16, 14, 14);
-        GUI.Box(box, "Space Travel Idle Community Patch\n\n" + Problem, style);
+        string text = "Space Travel Idle Community Patch\n\n" + Problem;
+        // as tall as the text, plus room for the OK button under it
+        float h = Mathf.Max(190f, style.CalcHeight(new GUIContent(text), w) + 50f);
+        Rect box = new Rect((Screen.width - w) / 2f, 30f, w, h);
+        GUI.Box(box, text, style);
         if (GUI.Button(new Rect(box.xMax - 110f, box.yMax - 46f, 94f, 32f), "OK"))
         {
             _dismissed = true;

@@ -73,6 +73,34 @@
 // frame of every tooltip - and every frame where the text really did change,
 // which is what live numbers in a tooltip need - rebuilds as before.
 //
+// v1.3.0 - tooltips drift away from the cursor after the window changes size.
+// Reported on Discord 26.10.2026 ("weird cursor desync from time to time"):
+// a screenshot with the tooltip's right edge exactly on the cursor's x, but
+// well above it. Vanilla, from Tooltip.cs and UIManager.cs:
+//
+//     private void Start() { RecalculatePositionAdjustment(); ... }  // Tooltip
+//     public void RecalculatePositionAdjustment()
+//     {
+//         halfScreenWidth = Screen.width / 2;
+//         halfScreenHeight = Screen.height / 2;
+//         positionAdjustment = new Vector3(-halfScreenWidth, -halfScreenHeight);
+//     }
+//     ...
+//     private void Update()                                          // UIManager
+//     {
+//         if (resolution != screen size) { RecalculateCanvasScaleFactor(); ... }
+//     }
+//
+// The game notices a resize and fixes its UI scale, but the tooltip measured
+// the screen once at startup and nothing ever asks it again. SetPos puts the
+// tooltip at (mouse - old half screen) / new scale, so after a resize,
+// maximise or full screen switch every tooltip sits off the cursor by half the
+// change in size, until the game is restarted. A window that only got taller
+// moves it straight up, which is the screenshot.
+//
+// The fix: a postfix on UIManager.RecalculateCanvasScaleFactor, which the game
+// calls exactly when the size changed, tells the tooltip to measure again.
+//
 // The setting is a row in the game's own settings panel, cloned from the
 // "hide card control UI" toggle, used as a click-to-cycle button: 5 -> 10 ->
 // 15 -> 20 -> 30 -> 5 seconds. The tick box is hidden because there is
@@ -97,7 +125,7 @@ using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
 
-[BepInPlugin("sti.community.tooltiptime", "STI Community Tooltip Time", "1.2.0")]
+[BepInPlugin("sti.community.tooltiptime", "STI Community Tooltip Time", "1.3.0")]
 public class TooltipTimePlugin : BaseUnityPlugin
 {
     public const string PREF_KEY = "communityTooltipSeconds";
@@ -276,6 +304,38 @@ public static class TooltipForgetOnDisablePatch
     public static void Postfix()
     {
         TooltipRebuildPatch.Forget();
+    }
+}
+
+// v1.3.0. See the header: the tooltip has to measure the screen again every
+// time the game itself notices a new window size.
+[HarmonyPatch(typeof(UIManager), "RecalculateCanvasScaleFactor")]
+public static class TooltipResizePatch
+{
+    private static bool warned;
+
+    public static void Postfix()
+    {
+        try
+        {
+            if (Tooltip.shared == null)
+            {
+                return; // too early; Tooltip.Start measures for itself
+            }
+            Tooltip.shared.RecalculatePositionAdjustment();
+            TooltipTimePlugin.Log.LogInfo("Tooltip: window is now "
+                + Screen.width + "x" + Screen.height
+                + ", tooltips re-centred on the cursor");
+        }
+        catch (Exception e)
+        {
+            if (!warned)
+            {
+                warned = true;
+                TooltipTimePlugin.Log.LogWarning("Tooltip: could not re-centre "
+                    + "after a window resize: " + e.Message);
+            }
+        }
     }
 }
 
